@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Language Translations (Wix Exact Match) ---
+    // --- Language Translations (Wix Studio Exact Match) ---
     const translations = {
         tr: {
             nav_home: "Ana Sayfa",
@@ -9,15 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_blog: "Blog",
             login_btn: "Giriş Yap",
             hero_title: "Potansiyelinizi Uzman Dil Eğitimiyle Keşfedin",
-            hero_subtitle: "Kurs Genel Bakış",
+            course_overview: "Kurs Genel Bakış",
             hero_desc: "Her seviyeden öğrenci için tasarlanmış kapsamlı dil öğrenme programımıza hoş geldiniz. Kurslarımız, akademik amaçlar, kariyer gelişimi veya kişisel büyüme için akıcılığa verimli bir şekilde ulaşmanıza yardımcı olmak amacıyla kanıtlanmış öğretim metodolojilerini interaktif pratikle birleştirir.",
             comfort_path: "Konfor Yolu",
-            group_classes_title: "Grup Dersleri",
+            group_classes: "Grup Dersleri",
             group_classes_desc: "İşbirlikçi bir ortamda konuşma ve dinleme pratiği yapacağınız dinamik grup oturumlarımıza katılın. Küçük sınıf mevcutları, akran öğreniminden yararlanmanızı sağlarken kişiselleştirilmiş ilgi görmenizi sağlar.",
-            expert_banner_title: "UZMAN EĞİTMENLERİMİZLE TANIŞIN — DİL ÖĞRENME BAŞARINIZA ADANMIŞ, GENİŞ SINIF DENEYİMİNE SAHİP, SERTİFİKALI DİL UZMANLARI.",
-            expert_banner_desc: "Eğitmenlerimiz, başarılı bir dil yolculuğu sağlamak için anadil düzeyinde akıcılığa ve kanıtlanmış öğretim deneyimine sahip sertifikalı profesyonellerdir.",
+            banner_text: "UZMAN EĞİTMENLERİMİZLE TANIŞIN — DİL ÖĞRENME BAŞARINIZA ADANMIŞ, GENİŞ SINIF DENEYİMİNE SAHİP, SERTİFİKALI DİL UZMANLARI.",
+            our_teachers: "Eğitmenlerimiz",
+            banner_subtext: "Eğitmenlerimiz, başarılı bir dil yolculuğu sağlamak için anadil düzeyinde akıcılığa ve kanıtlanmış öğretim deneyimine sahip sertifikalı profesyonellerdir.",
             intensive_course: "Yoğun Kurs",
-            one_to_one_title: "1-e-1 Özel Ders",
+            one_to_one: "1-e-1 Özel Ders",
             one_to_one_desc: "Özel ihtiyaçlarınıza, hızınıza ve öğrenme stilinize göre uyarlanmış özelleştirilmiş bire bir eğitimin tadını çıkarın. Özel derslerimiz, hızlı ilerleme için müfredat odağı ve zamanlama konusunda maksimum esneklik sunar.",
             feel_free: "BAŞLAMAKTAN ÇEKİNMEYİN",
             trial_title: "Ücretsiz Deneme Dersi",
@@ -42,25 +43,16 @@ document.addEventListener('DOMContentLoaded', () => {
             study_europe: "STUDY IN EUROPE",
             europe_title: "Avrupa'da Üniversite Eğitimi ve Akademik Danışmanlık Programları",
             europe_desc: "Avrupa'daki üniversite başvuru süreçleri, vize işlemleri ve konaklama çözümleri için teknik ve akademik destek sağlıyoruz.",
-            courses_title: "Kurslarımız",
-            courses_subtitle: "Gerçek dünya durumları için pratik iletişim becerileri geliştirmek üzere tasarlanmış çeşitli dil kursları arasından seçim yapın.",
+            our_courses_title: "Kurslarımız",
+            our_courses_desc: "Gerçek dünya durumları için pratik iletişim becerileri geliştirmek üzere tasarlanmış çeşitli dil kursları arasından seçim yapın.",
             course_1_title: "Grup Canlı Kurslar",
             course_2_title: "Ücretsiz Deneme Dersi",
+            ended: "Sona erdi",
             free: "Ücretsiz",
-            join_btn: "Hemen Başla",
+            btn_start: "Hemen Başla",
             faq_title: "Sıkça Sorulan Sorular",
             news_title: "İletişim ve Etkinlik Topluluğumuza Abone Olun",
-            subscribe_btn: "Abone Ol",
-            modal_title: "Ödeme Detayları",
-            modal_pay_btn: "Ödemeyi Tamamla",
-            placeholder_msg: "Mesajınız",
-            booking_title: "Randevu Alın",
-            booking_btn: "Gönder",
-            opt_trial: "Ücretsiz Deneme Dersi",
-            opt_consult: "Akademik Danışmanlık",
-            teacher_1_role: "Fransızca Uzmanı",
-            teacher_2_role: "Almanca Uzmanı",
-            teacher_3_role: "Mandarin Uzmanı"
+            subscribe_btn: "Abone Ol"
         },
         en: {
             nav_home: "Home",
@@ -70,15 +62,16 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_blog: "Blog",
             login_btn: "Login",
             hero_title: "Unlock Your Potential with Expert Language Instruction",
-            hero_subtitle: "Course Overview",
+            course_overview: "Course Overview",
             hero_desc: "Welcome to our comprehensive language learning program designed for students at all levels. Our courses combine proven teaching methodologies with interactive practice to help you achieve fluency efficiently, whether for academic purposes, career advancement, or personal growth.",
             comfort_path: "Comfort Path",
-            group_classes_title: "Group Classes",
+            group_classes: "Group Classes",
             group_classes_desc: "Join our dynamic group sessions where you'll practice speaking and listening in a collaborative environment. Small class sizes ensure personalized attention while allowing you to benefit from peer learning.",
-            expert_banner_title: "MEET OUR EXPERT TEACHERS — NATIVE-FLUENT, CERTIFIED LANGUAGE SPECIALISTS WITH EXTENSIVE CLASSROOM EXPERIENCE DEDICATED TO YOUR LANGUAGE LEARNING SUCCESS.",
-            expert_banner_desc: "Our instructors are certified professionals with native-level fluency and proven teaching experience to ensure your successful language journey.",
+            banner_text: "MEET OUR EXPERT TEACHERS — NATIVE-FLUENT, CERTIFIED LANGUAGE SPECIALISTS WITH EXTENSIVE CLASSROOM EXPERIENCE DEDICATED TO YOUR LANGUAGE LEARNING SUCCESS.",
+            our_teachers: "Our Teachers",
+            banner_subtext: "Our instructors are certified professionals with native-level fluency and proven teaching experience to ensure your successful language journey.",
             intensive_course: "Intensive Course",
-            one_to_one_title: "1-to-1 Lessons",
+            one_to_one: "1-to-1 Lessons",
             one_to_one_desc: "Experience customized one-on-one instruction tailored to your specific needs, pace, and learning style. Our private lessons offer maximum flexibility with scheduling and curriculum focus for rapid progress.",
             feel_free: "FEEL FREE TO START",
             trial_title: "Free Trial Lesson",
@@ -103,25 +96,16 @@ document.addEventListener('DOMContentLoaded', () => {
             study_europe: "STUDY IN EUROPE",
             europe_title: "University Education and Academic Consultancy Programs in Europe",
             europe_desc: "We provide technical and academic support for university application processes, visa procedures, and accommodation solutions in Europe.",
-            courses_title: "Our Courses",
-            courses_subtitle: "Choose from a variety of engaging language courses designed to develop practical communication skills for real-world situations.",
+            our_courses_title: "Our Courses",
+            our_courses_desc: "Choose from a variety of engaging language courses designed to develop practical communication skills for real-world situations.",
             course_1_title: "Group Live Courses",
             course_2_title: "Free Trial Lesson",
+            ended: "Ended",
             free: "Free",
-            join_btn: "Start Now",
+            btn_start: "Start Now",
             faq_title: "Frequently Asked Questions",
             news_title: "Subscribe to Our Communication and Event Community",
-            subscribe_btn: "Subscribe",
-            modal_title: "Payment Details",
-            modal_pay_btn: "Complete Payment",
-            placeholder_msg: "Your Message",
-            booking_title: "Book a Lesson",
-            booking_btn: "Send",
-            opt_trial: "Free Trial Lesson",
-            opt_consult: "Academic Consultation",
-            teacher_1_role: "French Specialist",
-            teacher_2_role: "German Specialist",
-            teacher_3_role: "Mandarin Specialist"
+            subscribe_btn: "Subscribe"
         }
     };
 
@@ -144,46 +128,21 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('lang-tr').addEventListener('click', () => switchLanguage('tr'));
     document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
 
-    // --- Theme Management ---
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-    darkModeToggle.addEventListener('click', () => {
-        const currentTheme = document.body.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-            document.body.removeAttribute('data-theme');
-            darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-        } else {
-            document.body.setAttribute('data-theme', 'dark');
-            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        }
-    });
-
-    // --- Accordion ---
+    // --- Accordion (Wix Plus Style) ---
     document.querySelectorAll('.accordion-header').forEach(header => {
         header.addEventListener('click', () => {
             const item = header.parentElement;
+            const icon = header.querySelector('i');
             item.classList.toggle('active');
+            if (item.classList.contains('active')) {
+                icon.classList.replace('fa-plus', 'fa-minus');
+            } else {
+                icon.classList.replace('fa-minus', 'fa-plus');
+            }
         });
     });
 
-    // --- Modal Logic ---
-    const modal = document.getElementById('checkout-modal');
-    const closeBtn = document.querySelector('.close-modal');
-    const triggers = document.querySelectorAll('.checkout-trigger');
-
-    triggers.forEach(t => {
-        t.addEventListener('click', () => {
-            const plan = t.getAttribute('data-plan');
-            const price = t.getAttribute('data-price');
-            document.getElementById('selected-plan-info').innerHTML = `<h3>${plan} - ${price}₺</h3>`;
-            document.getElementById('hidden-plan').value = plan;
-            modal.style.display = 'flex';
-        });
-    });
-
-    closeBtn.addEventListener('click', () => modal.style.display = 'none');
-    window.addEventListener('click', (e) => { if(e.target === modal) modal.style.display = 'none'; });
-
-    // --- Form Handling (AJAX) ---
+    // --- AJAX Form Handling ---
     async function handleForm(form, successMsg) {
         const btn = form.querySelector('button');
         const originalText = btn.innerText;
@@ -199,7 +158,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (res.ok) {
                 alert(successMsg);
                 form.reset();
-                if(modal) modal.style.display = 'none';
             } else {
                 alert('Hata! Lütfen e-postanızı doğrulayın.');
             }
@@ -211,13 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    document.getElementById('booking-form').addEventListener('submit', function(e) {
+    document.getElementById('newsletter-form')?.addEventListener('submit', function(e) {
         e.preventDefault();
-        handleForm(this, 'Talebiniz alındı!');
-    });
-
-    document.getElementById('payment-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        handleForm(this, 'Ödemeniz alındı!');
+        handleForm(this, 'Topluluğumuza katıldığınız için teşekkürler!');
     });
 });
