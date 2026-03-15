@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Pro | Dil Öğreniminde Uzmanlık</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav class="container">
+            <div class="logo">Language<span>Pro</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Ana Sayfa</a></li>
+                <li><a href="#courses">Kurslar</a></li>
+                <li><a href="#pricing">Abonelikler</a></li>
+                <li><a href="#booking">Randevu Al</a></li>
+                <li><a href="#faq">SSS</a></li>
+                <li><a href="#pricing" class="nav-cta">Hemen Başla</a></li>
+            </ul>
+            <div class="lang-selector">
+                <i class="fas fa-globe"></i>
+                <select>
+                    <option value="tr">TR</option>
+                    <option value="en">EN</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main id="home">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container hero-content">
+                <span class="badge">Sınırlı Süreli Teklif: %20 İndirim</span>
+                <h1>Dil Öğrenme Yolculuğunuz Burada Başlıyor</h1>
+                <p>Modern eğitim teknikleri, ana dili İngilizce olan eğitmenler ve size özel programlarla hayalinizdeki dile kavuşun.</p>
+                <div class="hero-btns">
+                    <a href="#pricing" class="btn btn-primary">Planları İncele</a>
+                    <a href="#booking" class="btn btn-secondary">Deneme Dersi Al</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Abonelik Planlarımız</h2>
+                    <p>Size en uygun planı seçin ve hemen öğrenmeye başlayın.</p>
+                </div>
+                <div class="pricing-grid">
+                    <!-- Standard Plan -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>STANDARD</h3>
+                            <div class="price">89₺ <span>/ ay</span></div>
+                            <p class="fee">+50₺ Kayıt Ücreti</p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Sınırsız Video Kurs Erişimi</li>
+                            <li><i class="fas fa-check"></i> Başarı Sertifikası</li>
+                            <li><i class="fas fa-check"></i> Topluluk Erişimi</li>
+                            <li class="disabled"><i class="fas fa-times"></i> 1-e-1 Özel Ders</li>
+                        </ul>
+                        <button class="btn btn-outline checkout-trigger" data-plan="Standard" data-price="89">Planı Seç</button>
+                    </div>
+
+                    <!-- Pro Plan (Most Popular) -->
+                    <div class="pricing-card featured">
+                        <div class="popular-badge">En Çok Tercih Edilen</div>
+                        <div class="pricing-header">
+                            <h3>PRO</h3>
+                            <div class="price">890₺ <span>/ ay</span></div>
+                            <p class="fee">+50₺ Kayıt Ücreti</p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Sınırsız Video Kurs Erişimi</li>
+                            <li><i class="fas fa-check"></i> Ayda 4 Saat 1-e-1 Özel Ders</li>
+                            <li><i class="fas fa-check"></i> Başarı Sertifikası</li>
+                            <li><i class="fas fa-check"></i> Esnek Başlangıç Tarihi</li>
+                        </ul>
+                        <button class="btn btn-primary checkout-trigger" data-plan="Pro" data-price="890">Hemen Başla</button>
+                    </div>
+
+                    <!-- Premium Plan -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>PREMIUM</h3>
+                            <div class="price">1.890₺ <span>/ ay</span></div>
+                            <p class="fee">+50₺ Kayıt Ücreti</p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Sınırsız Video Kurs Erişimi</li>
+                            <li><i class="fas fa-check"></i> Ayda 10 Saat 1-e-1 Özel Ders</li>
+                            <li><i class="fas fa-check"></i> VIP Destek</li>
+                            <li><i class="fas fa-check"></i> Özel Müfredat</li>
+                        </ul>
+                        <button class="btn btn-outline checkout-trigger" data-plan="Premium" data-price="1890">Premium'a Geç</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking & Calendar Section -->
+        <section id="booking" class="booking-section bg-light">
+            <div class="container">
+                <div class="booking-wrapper">
+                    <div class="booking-info">
+                        <h2 class="section-title">Deneme Dersi Randevusu</h2>
+                        <p>Eğitmenlerimizle tanışmak ve seviyenizi belirlemek için hemen bir randevu oluşturun.</p>
+                        <div class="info-items">
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>30 Dakika Ücretsiz</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-video"></i>
+                                <span>Online Görüşme (Zoom/Meet)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calendar-container">
+                        <form id="booking-form" action="https://formspree.io/f/efe.colak977@gmail.com" method="POST">
+                            <div class="form-group">
+                                <label>İsim Soyisim</label>
+                                <input type="text" name="name" placeholder="Adınız" required>
+                            </div>
+                            <div class="form-group">
+                                <label>E-posta</label>
+                                <input type="email" name="email" placeholder="ornek@mail.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Tarih Seçin</label>
+                                <input type="date" name="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Saat Seçin</label>
+                                <select name="time" required>
+                                    <option value="">Saat seçiniz...</option>
+                                    <option value="09:00">09:00</option>
+                                    <option value="11:00">11:00</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="16:00">16:00</option>
+                                    <option value="18:00">18:00</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Randevuyu Tamamla</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Sıkça Sorulan Sorular</h2>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header">Dersler ne kadar sürüyor? <i class="fas fa-chevron-down"></i></button>
+                        <div class="accordion-content">
+                            <p>Grup derslerimiz genellikle 60-90 dakika sürerken, özel dersler ihtiyacınıza göre 45-120 dakika arası planlanabilir.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">Ödeme yöntemleri nelerdir? <i class="fas fa-chevron-down"></i></button>
+                        <div class="accordion-content">
+                            <p>Kredi kartı, banka kartı ve havale yöntemleriyle güvenli ödeme yapabilirsiniz. Tüm işlemlerimiz 256-bit SSL ile korunmaktadır.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Payment/Checkout Modal -->
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Ödeme İşlemi</h2>
+            <div id="selected-plan-info"></div>
+            <form id="payment-form" action="https://formspree.io/f/efe.colak977@gmail.com" method="POST">
+                <input type="hidden" name="plan" id="hidden-plan">
+                <div class="form-group">
+                    <label>Kart Üzerindeki İsim</label>
+                    <input type="text" name="card-name" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label>Kart Numarası</label>
+                    <input type="text" name="card-number" placeholder="**** **** **** ****" maxlength="19" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Son Kullanma</label>
+                        <input type="text" name="expiry" placeholder="AA/YY" maxlength="5" required>
+                    </div>
+                    <div class="form-group">
+                        <label>CVV</label>
+                        <input type="text" name="cvv" placeholder="***" maxlength="3" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Güvenli Ödeme Yap</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">Language<span>Pro</span></div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p>&copy; 2026 Language Pro. Tüm Hakları Saklıdır.</p>
+            <p><small>Destek: efe.colak977@gmail.com</small></p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
