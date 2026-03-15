@@ -1,240 +1,1001 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Language Courses | Wix Studio Replica</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Ana Sayfa | Language Courses</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --dark:#0a0a0a;
+      --dark2:#111;
+      --dark3:#1a1a1a;
+      --dark4:#222;
+      --fg:#f0ede8;
+      --fg2:#999;
+      --fg3:#ccc;
+      --accent:#c9a84c;
+      --accent2:#e8c97a;
+      --border:#2a2a2a;
+      --radius:4px;
+    }
+    html{scroll-behavior:smooth}
+    body{background:var(--dark);color:var(--fg);font-family:'Jost',sans-serif;font-weight:400;line-height:1.6;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+    .container{max-width:1200px;margin:0 auto;padding:0 40px}
+    .gold{color:var(--accent)}
+    .tag{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}
+
+    /* NAVBAR */
+    #navbar{position:fixed;top:0;left:0;right:0;z-index:200;transition:background .3s,border-color .3s;border-bottom:1px solid transparent;padding:0 40px;height:70px;display:flex;align-items:center;justify-content:space-between}
+    #navbar.scrolled{background:rgba(10,10,10,.92);backdrop-filter:blur(20px);border-color:var(--border)}
+    .nav-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;letter-spacing:.08em;color:var(--fg)}
+    .nav-links{display:flex;gap:0;list-style:none}
+    .nav-links a{padding:8px 18px;font-size:13px;font-weight:500;letter-spacing:.04em;color:var(--fg2);transition:color .2s}
+    .nav-links a:hover{color:var(--fg)}
+    .nav-cta{background:var(--accent);color:#000;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:10px 24px;border-radius:var(--radius);transition:opacity .2s}
+    .nav-cta:hover{opacity:.85}
+    .hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
+    .hamburger span{display:block;width:22px;height:1.5px;background:var(--fg);transition:.3s}
+    .mobile-menu{display:none;position:fixed;top:70px;left:0;right:0;background:var(--dark2);border-bottom:1px solid var(--border);z-index:199;padding:16px 0}
+    .mobile-menu.open{display:block}
+    .mobile-menu a{display:block;padding:13px 40px;font-size:15px;color:var(--fg2);border-bottom:1px solid var(--border);transition:color .2s}
+    .mobile-menu a:hover{color:var(--fg)}
+    .mobile-menu .m-cta{margin:16px 40px;display:inline-block;background:var(--accent);color:#000;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:12px 24px;border-radius:var(--radius)}
+
+    /* HERO */
+    #hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0a0a0a 0%,#1a1209 50%,#0f0d08 100%)}
+    .hero-pattern{position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(201,168,76,.06) 0%,transparent 60%),radial-gradient(circle at 80% 20%,rgba(201,168,76,.04) 0%,transparent 40%)}
+    .hero-content{position:relative;z-index:2;max-width:800px;padding:120px 0 80px}
+    .hero-scrolling{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:32px;display:flex;align-items:center;gap:12px}
+    .hero-scrolling::before{content:'';display:inline-block;width:40px;height:1px;background:var(--accent)}
+    .hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,7vw,96px);font-weight:600;line-height:.95;letter-spacing:-.01em;color:var(--fg);margin-bottom:28px}
+    .hero-h1 em{font-style:italic;color:var(--accent)}
+    .hero-sub{font-size:16px;color:var(--fg2);max-width:520px;line-height:1.8;margin-bottom:48px}
+    .hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+    .btn-gold{background:var(--accent);color:#000;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:16px 36px;border-radius:var(--radius);transition:opacity .2s,transform .2s;border:none;cursor:pointer;font-family:'Jost',sans-serif}
+    .btn-gold:hover{opacity:.85;transform:translateY(-1px)}
+    .btn-outline{border:1px solid rgba(240,237,232,.25);color:var(--fg);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:16px 36px;border-radius:var(--radius);transition:border-color .2s,background .2s}
+    .btn-outline:hover{border-color:var(--accent);background:rgba(201,168,76,.06)}
+    .hero-langs{position:absolute;bottom:60px;left:0;right:0;overflow:hidden;z-index:2}
+    .hero-langs-track{display:flex;gap:32px;white-space:nowrap;animation:marquee-lang 20s linear infinite;opacity:.3;font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:.05em}
+    @keyframes marquee-lang{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    /* SECTION SHARED */
+    section{padding:100px 0}
+    .s-tag{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+    .s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,56px);font-weight:600;line-height:1.05;margin-bottom:20px}
+    .s-sub{font-size:15px;color:var(--fg2);line-height:1.8;max-width:580px}
+    .divider{width:48px;height:1px;background:var(--accent);margin:24px 0}
+
+    /* COURSE OVERVIEW */
+    #overview{background:var(--dark2)}
+    .overview-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .overview-img-stack{position:relative;height:520px}
+    .ov-img-main{position:absolute;top:0;left:0;width:75%;height:400px;object-fit:cover;border-radius:var(--radius)}
+    .ov-img-teachers{position:absolute;bottom:0;right:0;width:60%;display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+    .ov-img-teachers img{aspect-ratio:3/4;object-fit:cover;border-radius:var(--radius);border:2px solid var(--dark2)}
+    .ov-teacher-label{font-size:11px;color:var(--fg2);text-align:center;margin-top:4px}
+    .overview-text{}
+    .overview-text .s-sub{margin-bottom:32px}
+
+    /* TEACHERS MARQUEE */
+    #teachers-marquee{padding:60px 0;background:var(--dark3);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden}
+    .tm-track{display:flex;gap:0;white-space:nowrap;animation:marquee-lang 25s linear infinite}
+    .tm-item{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;padding:0 40px;color:var(--fg2);letter-spacing:.04em;border-right:1px solid var(--border);flex-shrink:0}
+    .tm-item span{color:var(--accent)}
+
+    /* 1-to-1 */
+    #one-to-one{background:var(--dark)}
+    .oto-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .oto-img{aspect-ratio:4/5;object-fit:cover;border-radius:var(--radius);width:100%}
+
+    /* FEATURES GRID */
+    #features{background:var(--dark2)}
+    .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:60px}
+    .feat-cell{background:var(--dark2);padding:48px 40px}
+    .feat-num{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:600;color:var(--accent);opacity:.3;margin-bottom:16px}
+    .feat-title{font-size:16px;font-weight:600;letter-spacing:.04em;margin-bottom:12px;color:var(--fg)}
+    .feat-desc{font-size:14px;color:var(--fg2);line-height:1.8}
+
+    /* VIDEO COURSE */
+    #video-course{background:var(--dark3)}
+    .vc-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .vc-img{aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius);width:100%}
+
+    /* CTA BANNER */
+    #cta-banner{position:relative;overflow:hidden;padding:0}
+    .cta-banner-inner{display:grid;grid-template-columns:1fr 1fr;min-height:600px}
+    .cta-banner-img{object-fit:cover;width:100%;height:100%}
+    .cta-banner-text{background:var(--dark3);display:flex;flex-direction:column;justify-content:center;padding:80px 60px;gap:32px}
+    .cta-banner-top{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+    .cta-banner-h{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,3.5vw,52px);font-weight:600;line-height:1.1}
+
+    /* STUDY IN EUROPE */
+    #study-eu{background:var(--dark);position:relative;overflow:hidden;padding:120px 0}
+    .seu-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:60px}
+    .seu-img{aspect-ratio:2/3;object-fit:cover;border-radius:var(--radius);width:100%;transition:transform .4s}
+    .seu-img:hover{transform:scale(1.02)}
+    .seu-text{grid-column:1/3;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:12px}
+    .seu-text .s-tag{margin-bottom:8px}
+    .seu-h{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,64px);font-weight:700;font-style:italic;line-height:1.05;margin-bottom:20px}
+    .seu-sub{font-size:14px;color:var(--fg2);line-height:1.8;max-width:540px;margin-bottom:36px}
+    .seu-btns{display:flex;gap:12px;flex-wrap:wrap}
+
+    /* COURSES SECTION */
+    #courses{background:var(--dark2)}
+    .courses-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);margin:40px 0 48px}
+    .c-tab{padding:14px 28px;font-size:13px;font-weight:600;letter-spacing:.06em;color:var(--fg2);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s;background:none;border-top:none;border-left:none;border-right:none;font-family:'Jost',sans-serif}
+    .c-tab.active{color:var(--fg);border-bottom-color:var(--accent)}
+    .c-tab:hover:not(.active){color:var(--fg3)}
+    .course-panel{display:none}
+    .course-panel.active{display:block}
+    .course-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
+    .course-card{background:var(--dark3);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color .3s,transform .3s}
+    .course-card:hover{border-color:var(--accent);transform:translateY(-4px)}
+    .cc-img{aspect-ratio:16/9;object-fit:cover;width:100%}
+    .cc-body{padding:24px}
+    .cc-online{font-size:11px;color:var(--fg2);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+    .cc-online::before{content:'';width:6px;height:6px;border-radius:50%;background:#4ade80;flex-shrink:0}
+    .cc-title{font-size:17px;font-weight:600;margin-bottom:8px;color:var(--fg)}
+    .cc-desc{font-size:13px;color:var(--fg2);line-height:1.7;margin-bottom:20px}
+    .cc-footer{display:flex;align-items:center;justify-content:space-between}
+    .cc-price{font-size:18px;font-weight:700;color:var(--accent)}
+    .cc-btn{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:7px 16px;border-radius:var(--radius);transition:background .2s,color .2s}
+    .cc-btn:hover{background:var(--accent);color:#000}
+    .cc-time{font-size:12px;color:var(--fg2)}
+
+    /* PRICING */
+    #pricing{background:var(--dark)}
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+    .price-card{background:var(--dark2);border:1px solid var(--border);border-radius:var(--radius);padding:40px 32px;position:relative;transition:border-color .3s}
+    .price-card:hover{border-color:var(--accent)}
+    .price-card.featured{border-color:var(--accent);background:var(--dark3)}
+    .price-featured-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:#000;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 16px;border-radius:999px}
+    .price-plan{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+    .price-amount{font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:600;line-height:1;margin-bottom:4px}
+    .price-amount sup{font-size:22px;vertical-align:super}
+    .price-period{font-size:13px;color:var(--fg2);margin-bottom:8px}
+    .price-joining{font-size:12px;color:var(--fg2);margin-bottom:32px}
+    .price-trial{font-size:12px;color:var(--accent);margin-bottom:32px}
+    .price-divider{height:1px;background:var(--border);margin-bottom:28px}
+    .price-features{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+    .price-feature{font-size:14px;color:var(--fg2);display:flex;align-items:center;gap:10px}
+    .price-feature::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0}
+    .price-btn{width:100%;padding:14px;background:transparent;border:1px solid var(--accent);color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:var(--radius);cursor:pointer;font-family:'Jost',sans-serif;transition:background .2s,color .2s}
+    .price-btn:hover,.price-card.featured .price-btn{background:var(--accent);color:#000}
+
+    /* FAQ */
+    #faq{background:var(--dark2)}
+    .faq-list{margin-top:48px;max-width:800px}
+    .faq-item{border-bottom:1px solid var(--border)}
+    .faq-q{width:100%;text-align:left;padding:22px 0;background:none;border:none;color:var(--fg);font-size:16px;font-weight:500;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:'Jost',sans-serif}
+    .faq-q .faq-arrow{color:var(--accent);font-size:20px;transition:transform .3s;flex-shrink:0}
+    .faq-q.open .faq-arrow{transform:rotate(45deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;font-size:14px;color:var(--fg2);line-height:1.8}
+    .faq-a.open{max-height:400px;padding-bottom:20px}
+
+    /* EVENTS */
+    #events{background:var(--dark)}
+    .events-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px;margin-top:48px}
+    .event-card{background:var(--dark2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color .3s}
+    .event-card:hover{border-color:var(--accent)}
+    .ev-img{aspect-ratio:3/2;object-fit:cover;width:100%}
+    .ev-body{padding:24px}
+    .ev-tag{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .ev-title{font-size:16px;font-weight:600;margin-bottom:8px;color:var(--fg);line-height:1.4}
+    .ev-meta{font-size:13px;color:var(--fg2);margin-bottom:16px}
+    .ev-link{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border-bottom:1px solid transparent;transition:border-color .2s}
+    .ev-link:hover{border-color:var(--accent)}
+
+    /* NEWSLETTER */
+    #newsletter{background:var(--dark3);padding:80px 0;border-top:1px solid var(--border)}
+    .nl-inner{max-width:600px;margin:0 auto;text-align:center}
+    .nl-title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;margin-bottom:12px}
+    .nl-sub{font-size:14px;color:var(--fg2);margin-bottom:36px}
+    .nl-form{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+    .nl-input{flex:1;min-width:240px;padding:14px 20px;background:var(--dark4);border:1px solid var(--border);color:var(--fg);font-size:14px;border-radius:var(--radius);font-family:'Jost',sans-serif;outline:none;transition:border-color .2s}
+    .nl-input:focus{border-color:var(--accent)}
+    .nl-check{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--fg2);text-align:left;margin-bottom:20px;max-width:500px}
+    .nl-check input{margin-top:3px;accent-color:var(--accent)}
+
+    /* BLOG */
+    #blog{background:var(--dark2)}
+    .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+    .blog-card{background:var(--dark3);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color .3s}
+    .blog-card:hover{border-color:var(--accent)}
+    .blog-img{aspect-ratio:16/9;object-fit:cover;width:100%}
+    .blog-body{padding:24px}
+    .blog-date{font-size:12px;color:var(--fg2);margin-bottom:10px}
+    .blog-title{font-size:17px;font-weight:600;margin-bottom:10px;color:var(--fg);line-height:1.4}
+    .blog-desc{font-size:13px;color:var(--fg2);line-height:1.7}
+
+    /* FREE TRIAL CTA */
+    #free-trial{background:var(--dark);text-align:center;padding:80px 0}
+    .ft-tag{margin-bottom:16px}
+    .ft-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,56px);font-weight:600;margin-bottom:20px}
+    .ft-sub{font-size:15px;color:var(--fg2);max-width:500px;margin:0 auto 40px}
+
+    /* FOOTER */
+    #footer{background:var(--dark2);border-top:1px solid var(--border);padding:60px 0 40px}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;margin-bottom:48px}
+    .footer-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;letter-spacing:.06em;margin-bottom:16px;color:var(--fg)}
+    .footer-copy{font-size:13px;color:var(--fg2);line-height:1.8}
+    .footer-col-title{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+    .footer-links{display:flex;flex-direction:column;gap:10px}
+    .footer-links a{font-size:14px;color:var(--fg2);transition:color .2s}
+    .footer-links a:hover{color:var(--fg)}
+    .footer-contact p{font-size:14px;color:var(--fg2);line-height:1.8}
+    .footer-contact a{color:var(--fg2);transition:color .2s}
+    .footer-contact a:hover{color:var(--accent)}
+    .footer-bottom{padding-top:28px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .footer-bottom-copy{font-size:12px;color:var(--fg2)}
+    .footer-bottom-links{display:flex;gap:24px}
+    .footer-bottom-links a{font-size:12px;color:var(--fg2);transition:color .2s}
+    .footer-bottom-links a:hover{color:var(--fg)}
+    .back-top{font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+
+    /* RESPONSIVE */
+    @media(max-width:1000px){
+      .overview-grid,.oto-grid,.vc-grid,.cta-banner-inner,.seu-grid,.footer-grid{grid-template-columns:1fr}
+      .feat-grid{grid-template-columns:1fr 1fr}
+      .pricing-grid{grid-template-columns:1fr}
+      .blog-grid{grid-template-columns:1fr 1fr}
+      .cta-banner-img{height:400px}
+      .seu-text{grid-column:1}
+    }
+    @media(max-width:700px){
+      .nav-links,.nav-cta{display:none}
+      .hamburger{display:flex}
+      .container{padding:0 20px}
+      section{padding:70px 0}
+      .feat-grid{grid-template-columns:1fr}
+      .blog-grid{grid-template-columns:1fr}
+      .course-grid{grid-template-columns:1fr}
+      .courses-tabs{overflow-x:auto;gap:0}
+      #navbar{padding:0 20px}
+    }
+
+    /* FADE IN */
+    .fade{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+    .fade.in{opacity:1;transform:none}
+
+    /* FILTER TAGS */
+    .filter-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+    .f-tag{padding:6px 18px;border-radius:999px;font-size:12px;font-weight:600;border:1px solid var(--border);color:var(--fg2);cursor:pointer;transition:.2s;background:none;font-family:'Jost',sans-serif}
+    .f-tag.active{background:var(--accent);color:#000;border-color:var(--accent)}
+    .f-tag:hover:not(.active){border-color:var(--accent);color:var(--fg)}
+  </style>
 </head>
-<body data-lang="tr">
-    <!-- Header -->
-    <header>
-        <nav class="container">
-            <div class="logo">Language<span>Courses</span></div>
-            <ul class="nav-links">
-                <li><a href="#home" data-key="nav_home">Ana Sayfa</a></li>
-                <li><a href="#courses" data-key="nav_courses">Kurslar</a></li>
-                <li><a href="#teachers" data-key="nav_teachers">Eğitmenler</a></li>
-                <li><a href="#events" data-key="nav_events">Etkinlikler</a></li>
-                <li><a href="#blog" data-key="nav_blog">Blog</a></li>
-            </ul>
-            <div class="header-actions">
-                <div class="lang-switch">
-                    <span id="lang-tr" class="active">TR</span> | <span id="lang-en">EN</span>
-                </div>
-                <button id="login-trigger" class="btn-login" data-key="login_btn">Giriş Yap</button>
-            </div>
-        </nav>
-    </header>
+<body>
 
-    <main>
-        <!-- Section 1: Hero -->
-        <section id="home" class="hero-section container">
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <h1 data-key="hero_title">Potansiyelinizi Uzman Dil Eğitimiyle Keşfedin</h1>
-                    <h3 data-key="course_overview">Kurs Genel Bakış</h3>
-                    <p data-key="hero_desc">Her seviyeden öğrenci için tasarlanmış kapsamlı dil öğrenme programımıza hoş geldiniz. Kurslarımız, akademik amaçlar, kariyer gelişimi veya kişisel büyüme için akıcılığa verimli bir şekilde ulaşmanıza yardımcı olmak amacıyla kanıtlanmış öğretim metodolojilerini interaktif pratikle birleştirir.</p>
-                </div>
-                <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Learning">
-                </div>
-            </div>
-        </section>
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">EUROPEUNI.com</a>
+  <ul class="nav-links">
+    <li><a href="#hero">Ana Sayfa</a></li>
+    <li><a href="#courses">Live Courses</a></li>
+    <li><a href="#courses">Video Courses</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#pricing">Subscribe</a></li>
+    <li><a href="#blog">Blog</a></li>
+  </ul>
+  <a href="#free-trial" class="nav-cta">Free Trial Lesson</a>
+  <button class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#hero">Ana Sayfa</a>
+  <a href="#courses">Live Courses</a>
+  <a href="#courses">Video Courses</a>
+  <a href="#events">Events</a>
+  <a href="#pricing">Subscribe</a>
+  <a href="#blog">Blog</a>
+  <a href="#free-trial" class="m-cta">Free Trial Lesson</a>
+</div>
 
-        <!-- Section 2: Comfort Path (Group Classes) -->
-        <section class="comfort-path-section container">
-            <div class="comfort-grid">
-                <div class="comfort-text">
-                    <h4 data-key="comfort_path">Konfor Yolu</h4>
-                    <h2 data-key="group_classes">Grup Dersleri</h2>
-                    <p data-key="group_classes_desc">İşbirlikçi bir ortamda konuşma ve dinleme pratiği yapacağınız dinamik grup oturumlarımıza katılın. Küçük sınıf mevcutları, akran öğreniminden yararlanmanızı sağlarken kişiselleştirilmiş ilgi görmenizi sağlar.</p>
-                    <div class="teacher-list">
-                        <span>Wei-Lin Zhang</span>
-                        <span>Markus Heidelberg</span>
-                        <span>Isabelle Dupont</span>
-                    </div>
-                </div>
-                <div class="comfort-image">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Group Classes">
-                </div>
-            </div>
-        </section>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-scrolling">Unlock Your Potential</div>
+      <h1 class="hero-h1">Expert<br><em>Language</em><br>Instruction</h1>
+      <p class="hero-sub">Welcome to our comprehensive language learning program designed for students at all levels. Proven methodologies, interactive practice, fluency achieved.</p>
+      <div class="hero-btns">
+        <a href="#courses" class="btn-gold">View Courses</a>
+        <a href="#free-trial" class="btn-outline">Book Free Trial</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-langs">
+    <div class="hero-langs-track">
+      <span>Bonjour!&nbsp;&nbsp;•&nbsp;&nbsp;</span><span>Hallo!&nbsp;&nbsp;•&nbsp;&nbsp;</span><span>你好!&nbsp;&nbsp;•&nbsp;&nbsp;</span><span>Hola!&nbsp;&nbsp;•&nbsp;&nbsp;</span><span>Salut!&nbsp;&nbsp;•&nbsp;&nbsp;</span><span>Guten Tag!&nbsp;&nbsp;•&nbsp;&nbsp;</span><span>嗨!&nbsp;&nbsp;•&nbsp;&nbsp;</span><span>Buenos días!&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+      <span>Bonjour!&nbsp;&nbsp;•&nbsp;&nbsp;</span><span>Hallo!&nbsp;&nbsp;•&nbsp;&nbsp;</span><span>你好!&nbsp;&nbsp;•&nbsp;&nbsp;</span><span>Hola!&nbsp;&nbsp;•&nbsp;&nbsp;</span><span>Salut!&nbsp;&nbsp;•&nbsp;&nbsp;</span><span>Guten Tag!&nbsp;&nbsp;•&nbsp;&nbsp;</span><span>嗨!&nbsp;&nbsp;•&nbsp;&nbsp;</span><span>Buenos días!&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+    </div>
+  </div>
+</section>
 
-        <!-- Section 3: Expert Banner (Wix Banner style) -->
-        <section class="expert-banner-full">
-            <div class="banner-content container">
-                <h2 data-key="banner_text">UZMAN EĞİTMENLERİMİZLE TANIŞIN — DİL ÖĞRENME BAŞARINIZA ADANMIŞ, GENİŞ SINIF DENEYİMİNE SAHİP, SERTİFİKALI DİL UZMANLARI.</h2>
-                <h3 data-key="our_teachers">Eğitmenlerimiz</h3>
-                <p data-key="banner_subtext">Eğitmenlerimiz, başarılı bir dil yolculuğu sağlamak için anadil düzeyinde akıcılığa ve kanıtlanmış öğretim deneyimine sahip sertifikalı profesyonellerdir.</p>
-            </div>
-        </section>
-
-        <!-- Section 4: Intensive Course (1-to-1) -->
-        <section class="intensive-section container">
-            <div class="intensive-grid">
-                <div class="intensive-image">
-                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="1-to-1">
-                </div>
-                <div class="intensive-text">
-                    <h4 data-key="intensive_course">Yoğun Kurs</h4>
-                    <h2 data-key="one_to_one">1-e-1 Özel Ders</h2>
-                    <p data-key="one_to_one_desc">Özel ihtiyaçlarınıza, hızınıza ve öğrenme stilinize göre uyarlanmış özelleştirilmiş bire bir eğitimin tadını çıkarın. Özel derslerimiz, hızlı ilerleme için müfredat odağı ve zamanlama konusunda maksimum esneklik sunar.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 5: Free Trial Banner -->
-        <section class="free-trial-banner">
-            <div class="container trial-content">
-                <h4 data-key="feel_free">BAŞLAMAKTAN ÇEKİNMEYİN</h4>
-                <h2 data-key="trial_title">Ücretsiz Deneme Dersi</h2>
-                <p data-key="trial_desc">Nereden başlayacağınızdan emin değil misiniz? Öğretim yaklaşımımızı deneyimlemek için 30 dakikalık ücretsiz bir oturum planlayın. Bu yükümlülük gerektirmeyen deneme, dil yolculuğunuz için doğru öğrenme yolunu belirlemenize yardımcı olur.</p>
-                <button class="btn-wix-primary" data-key="trial_btn">Ücretsiz Deneme Dersi Al</button>
-            </div>
-        </section>
-
-        <!-- Section 6: Feature Tiles (8 squares) -->
-        <section class="features-tiles container">
-            <div class="tile">
-                <h3 data-key="feat_1_title">Anadilinde Konuşanlar</h3>
-                <p data-key="feat_1_desc">Kitapların öğretemediği otantik telaffuz, kültürel incelikler ve doğal dil kalıplarını uzman eğitmenlerimizden öğrenin.</p>
-            </div>
-            <div class="tile">
-                <h3 data-key="feat_2_title">İmmersif Metot</h3>
-                <p data-key="feat_2_desc">İlk günden itibaren pratik konuşmaya odaklanan yaklaşımımızla, bağlamsal öğrenme yoluyla doğal konuşma becerileri geliştirin.</p>
-            </div>
-            <div class="tile">
-                <h3 data-key="feat_3_title">Küçük Grup Sınıfları</h3>
-                <p data-key="feat_3_desc">Sınıf başına maksimum 6 öğrenci ile her oturumda kişiselleştirilmiş geri bildirim ve bolca konuşma süresi elde edin.</p>
-            </div>
-            <div class="tile">
-                <h3 data-key="feat_4_title">Video Kurs Aboneliği</h3>
-                <p data-key="feat_4_desc">İnteraktif egzersizlerle birlikte profesyonelce kaydedilmiş ders kütüphanemize dilediğiniz zaman erişin.</p>
-            </div>
-            <div class="tile">
-                <h3 data-key="feat_5_title">Esnek Program</h3>
-                <p data-key="feat_5_desc">Yoğun yaşam tarzınıza uyum sağlayacak sabah, akşam veya hafta sonu sınıflarından birini seçin; gerektiğinde dersinizi yeniden planlayın.</p>
-            </div>
-            <div class="tile">
-                <h3 data-key="feat_6_title">Dijital Kaynaklar</h3>
-                <p data-key="feat_6_desc">Dersler arasında interaktif egzersizler, sesli materyaller ve ek içeriklerle dolu özel çevrimiçi platformumuza erişin.</p>
-            </div>
-            <div class="tile">
-                <h3 data-key="feat_7_title">İlerleme Takibi</h3>
-                <p data-key="feat_7_desc">Düzenli değerlendirmeler ve detaylı geri bildirimlerle gelişiminizi ölçün ve odaklanmanız gereken alanları belirleyin.</p>
-            </div>
-            <div class="tile">
-                <h3 data-key="feat_8_title">Kültürel Bileşen</h3>
-                <p data-key="feat_8_desc">Dilin otantik bağlamlarda nasıl kullanıldığını şekillendiren gelenekleri, tarihi ve sosyal nüansları keşfedin.</p>
-            </div>
-        </section>
-
-        <!-- Language Marquee / Bonjour! -->
-        <section class="language-marquee">
-            <div class="marquee-content">
-                Bonjour! • Hallo! • 你好! • Hola! • Salut • Guten Tag • 嗨 • Buenos días • Bonjour! • Hallo! • 你好! • Hola! • Salut • Guten Tag • 嗨 • Buenos días
-            </div>
-        </section>
-
-        <!-- Section 7: Europe Section -->
-        <section class="europe-section container">
-            <div class="europe-grid">
-                <div class="europe-image">
-                    <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Europe Study">
-                </div>
-                <div class="europe-content">
-                    <h4 data-key="study_europe">STUDY IN EUROPE</h4>
-                    <h2 data-key="europe_title">Avrupa'da Üniversite Eğitimi ve Akademik Danışmanlık Programları</h2>
-                    <p data-key="europe_desc">Avrupa'daki üniversite başvuru süreçleri, vize işlemleri ve konaklama çözümleri için teknik ve akademik destek sağlıyoruz.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 8: Our Courses (Pricing Cards) -->
-        <section id="courses" class="courses-section bg-gray">
-            <div class="container">
-                <h2 class="section-title" data-key="our_courses_title">Kurslarımız</h2>
-                <p class="section-subtitle" data-key="our_courses_desc">Gerçek dünya durumları için pratik iletişim becerileri geliştirmek üzere tasarlanmış çeşitli dil kursları arasından seçim yapın.</p>
-                <div class="courses-grid">
-                    <div class="course-card">
-                        <div class="card-img">
-                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Group Live">
-                        </div>
-                        <div class="card-body">
-                            <h3 data-key="course_1_title">Grup Canlı Kurslar</h3>
-                            <p class="status" data-key="ended">Sona erdi</p>
-                            <p class="price">₺2.499</p>
-                            <button class="btn-wix-secondary" data-key="btn_start">Hemen Başla</button>
-                        </div>
-                    </div>
-                    <div class="course-card">
-                        <div class="card-img">
-                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Free Trial">
-                        </div>
-                        <div class="card-body">
-                            <h3 data-key="course_2_title">Ücretsiz Deneme Dersi</h3>
-                            <p class="price" data-key="free">Ücretsiz</p>
-                            <button class="btn-wix-secondary" data-key="btn_start">Hemen Başla</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section class="faq-section container">
-            <h2 class="section-title" data-key="faq_title">Sıkça Sorulan Sorular</h2>
-            <div class="accordion">
-                <div class="accordion-item">
-                    <button class="accordion-header">Sınıf mevcutları ne kadar? <i class="fas fa-plus"></i></button>
-                    <div class="accordion-content">
-                        <p>Grup derslerimizde maksimum 6 öğrenci bulunmaktadır.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">Eğitmenler kimlerdir? <i class="fas fa-plus"></i></button>
-                    <div class="accordion-content">
-                        <p>Tüm eğitmenlerimiz sertifikalı profesyoneller ve anadil düzeyinde akıcılığa sahip uzmanlardır.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Newsletter Section -->
-        <section class="newsletter-section bg-dark">
-            <div class="container">
-                <h2 data-key="news_title">İletişim ve Etkinlik Topluluğumuza Abone Olun</h2>
-                <form id="newsletter-form" class="newsletter-form">
-                    <input type="email" name="email" placeholder="E-posta Adresiniz" required>
-                    <button type="submit" class="btn-wix-primary" data-key="subscribe_btn">Abone Ol</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container footer-grid">
-            <div class="footer-logo">Language<span>Courses</span></div>
-            <div class="footer-social">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-            </div>
-            <p>&copy; 2026 Language Courses. Tüm Hakları Saklıdır.</p>
+<!-- COURSE OVERVIEW -->
+<section id="overview">
+  <div class="container">
+    <div class="overview-grid">
+      <div class="overview-img-stack fade">
+        <img class="ov-img-main" src="https://static.wixstatic.com/media/782e0c41650948939f5d72cda7efcf74.jpg/v1/fill/w_980,h_698,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Young%20Professor.jpg" alt="Professor" />
+        <div class="ov-img-teachers">
+          <div>
+            <img src="https://static.wixstatic.com/media/782e0c41650948939f5d72cda7efcf74.jpg/v1/fill/w_980,h_698,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Young%20Professor.jpg" alt="Wei-Lin Zhang"/>
+            <div class="ov-teacher-label">Wei-Lin Zhang</div>
+          </div>
+          <div>
+            <img src="https://static.wixstatic.com/media/4be2460f7dc640e5b95496528a1c5da8.jpg/v1/fill/w_980,h_682,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Man%20with%20Black%20Frame%20Glasses.jpg" alt="Markus Heidelberg"/>
+            <div class="ov-teacher-label">Markus Heidelberg</div>
+          </div>
+          <div>
+            <img src="https://static.wixstatic.com/media/11062b_eb85a71b1a6c458fab12c11066717752~mv2.jpg/v1/fill/w_980,h_653,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Professor.jpg" alt="Isabelle Dupont"/>
+            <div class="ov-teacher-label">Isabelle Dupont</div>
+          </div>
         </div>
-    </footer>
+      </div>
+      <div class="overview-text fade">
+        <div class="s-tag">Course overview</div>
+        <h2 class="s-title">Group Classes</h2>
+        <div class="divider"></div>
+        <p class="s-sub">Join our dynamic group sessions where you'll practice speaking and listening in a collaborative environment. Small class sizes ensure personalized attention while allowing you to benefit from peer learning.</p>
+        <a href="#courses" class="btn-gold" style="display:inline-block;margin-top:8px">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/905000000000" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+<!-- TEACHERS MARQUEE -->
+<div id="teachers-marquee">
+  <div class="tm-track">
+    <div class="tm-item">MEET OUR EXPERT TEACHERS — <span>NATIVE-FLUENT</span>, CERTIFIED SPECIALISTS</div>
+    <div class="tm-item">DEDICATED TO YOUR <span>LANGUAGE LEARNING</span> SUCCESS</div>
+    <div class="tm-item">EXTENSIVE <span>CLASSROOM EXPERIENCE</span> AT ALL LEVELS</div>
+    <div class="tm-item">MEET OUR EXPERT TEACHERS — <span>NATIVE-FLUENT</span>, CERTIFIED SPECIALISTS</div>
+    <div class="tm-item">DEDICATED TO YOUR <span>LANGUAGE LEARNING</span> SUCCESS</div>
+    <div class="tm-item">EXTENSIVE <span>CLASSROOM EXPERIENCE</span> AT ALL LEVELS</div>
+  </div>
+</div>
 
-    <script src="scripts.js"></script>
+<!-- OUR TEACHERS -->
+<section id="our-teachers" style="background:var(--dark2)">
+  <div class="container">
+    <div class="s-tag fade">Our teachers</div>
+    <h2 class="s-title fade" style="max-width:700px">OUR INSTRUCTORS ARE CERTIFIED PROFESSIONALS WITH NATIVE-LEVEL FLUENCY</h2>
+  </div>
+</section>
+
+<!-- 1-TO-1 -->
+<section id="one-to-one">
+  <div class="container">
+    <div class="oto-grid">
+      <div class="fade">
+        <div class="s-tag">Intensive course</div>
+        <h2 class="s-title">1-to-1 Lessons</h2>
+        <div class="divider"></div>
+        <p class="s-sub" style="margin-bottom:32px">Experience customized one-on-one instruction tailored to your specific needs, pace, and learning style. Our private lessons offer maximum flexibility with scheduling and curriculum focus for rapid progress.</p>
+        <a href="#courses" class="btn-gold" style="display:inline-block">Learn More</a>
+      </div>
+      <img class="oto-img fade" src="https://static.wixstatic.com/media/11062b_0048a12b1efd41969114c604d25ea6b4~mv2.jpeg/v1/fill/w_6124,h_4082,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/11062b_0048a12b1efd41969114c604d25ea6b4~mv2.jpeg" alt="1-to-1 Lessons"/>
+    </div>
+  </div>
+</section>
+
+<!-- FREE TRIAL INLINE -->
+<section style="background:var(--dark3);padding:80px 0;border-top:1px solid var(--border)">
+  <div class="container">
+    <div class="oto-grid" style="gap:60px">
+      <div class="fade">
+        <div class="s-tag">Feel free to start</div>
+        <h2 class="s-title">Free Trial Lesson</h2>
+        <div class="divider"></div>
+        <p class="s-sub" style="margin-bottom:32px">Unsure where to start? Book a complimentary 30-minute session to experience our teaching approach. This no-obligation trial helps you determine the right learning path for your language journey.</p>
+        <a href="#free-trial" class="btn-gold" style="display:inline-block">Sign Up Now</a>
+      </div>
+      <div class="fade" style="display:flex;flex-direction:column;gap:32px;padding-top:12px">
+        <div>
+          <div class="feat-title" style="color:var(--accent);margin-bottom:8px">Native Speakers</div>
+          <p class="feat-desc">Learn from instructors who provide authentic pronunciation, cultural insights, and natural language patterns that textbooks alone cannot teach.</p>
+        </div>
+        <div>
+          <div class="feat-title" style="color:var(--accent);margin-bottom:8px">Immersive Method</div>
+          <p class="feat-desc">Our approach focuses on practical conversation from day one, helping you develop natural speaking skills through contextual learning.</p>
+        </div>
+        <div>
+          <div class="feat-title" style="color:var(--accent);margin-bottom:8px">Small Group Sizes</div>
+          <p class="feat-desc">With maximum 6 students per class, you'll receive personalized feedback and ample speaking time in every session.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="container">
+    <div class="s-tag fade">Why choose us</div>
+    <h2 class="s-title fade">Everything You Need<br>to Succeed</h2>
+    <div class="feat-grid">
+      <div class="feat-cell fade">
+        <div class="feat-num">01</div>
+        <div class="feat-title">Flexible Schedule</div>
+        <p class="feat-desc">Choose from morning, evening, or weekend classes to fit your busy lifestyle, with options to reschedule when needed.</p>
+      </div>
+      <div class="feat-cell fade">
+        <div class="feat-num">02</div>
+        <div class="feat-title">Digital Resources</div>
+        <p class="feat-desc">Access our exclusive online platform with interactive exercises, audio materials, and supplementary content between classes.</p>
+      </div>
+      <div class="feat-cell fade">
+        <div class="feat-num">03</div>
+        <div class="feat-title">Progress Tracking</div>
+        <p class="feat-desc">Regular assessments and detailed feedback help you measure improvement and identify areas needing additional focus.</p>
+      </div>
+      <div class="feat-cell fade">
+        <div class="feat-num">04</div>
+        <div class="feat-title">Cultural Component</div>
+        <p class="feat-desc">Discover the traditions, history, and social nuances that shape how language is used in authentic contexts.</p>
+      </div>
+      <div class="feat-cell fade">
+        <div class="feat-num">05</div>
+        <div class="feat-title">Native Speakers</div>
+        <p class="feat-desc">Learn from instructors who provide authentic pronunciation, cultural insights, and natural language patterns.</p>
+      </div>
+      <div class="feat-cell fade">
+        <div class="feat-num">06</div>
+        <div class="feat-title">Certificate of Completion</div>
+        <p class="feat-desc">Earn a recognized certificate upon completing your course to showcase your language skills to employers and institutions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO COURSE -->
+<section id="video-course" >
+  <div class="container">
+    <div class="vc-grid">
+      <img class="vc-img fade" src="https://static.wixstatic.com/media/11062b_0048a12b1efd41969114c604d25ea6b4~mv2.jpeg/v1/fill/w_6124,h_4082,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_0048a12b1efd41969114c604d25ea6b4~mv2.jpeg" alt="Video Courses"/>
+      <div class="fade">
+        <div class="s-tag">Self-paced</div>
+        <h2 class="s-title">Video Course Subscription</h2>
+        <div class="divider"></div>
+        <p class="s-sub" style="margin-bottom:32px">Access our library of professionally recorded lessons at your convenience with interactive exercises. Support self-paced learning from anywhere in the world with cultural insights and practice materials.</p>
+        <a href="#pricing" class="btn-gold" style="display:inline-block">Subscribe</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section id="cta-banner">
+  <div class="cta-banner-inner">
+    <img class="cta-banner-img" src="https://static.wixstatic.com/media/18c3e64298a643169c1249c4470bf867.jpg/v1/fill/w_825,h_1001,al_c,q_85,enc_avif,quality_auto/woman%202.jpg" alt="Contact"/>
+    <div class="cta-banner-text fade">
+      <div class="cta-banner-top">Do you have any questions?</div>
+      <h2 class="cta-banner-h" style="font-family:'Cormorant Garamond',serif">I'm here to help!</h2>
+      <p style="font-size:14px;color:var(--fg2);line-height:1.8;max-width:380px">Get in touch and we'll find the perfect course for your language goals. No commitment required.</p>
+      <a href="#free-trial" class="btn-gold" style="display:inline-block;width:fit-content">Book a Free Call</a>
+    </div>
+  </div>
+</section>
+
+<!-- STUDY IN EUROPE -->
+<section id="study-eu">
+  <div class="container">
+    <div class="seu-grid">
+      <div class="seu-text fade">
+        <div class="s-tag">Study in Europe</div>
+        <h2 class="seu-h">Avrupa'da<br>Üniversite Eğitimi</h2>
+        <p class="seu-sub">Avrupa'daki üniversite başvuru süreçleri, vize işlemleri ve konaklama çözümleri için teknik, akademik destek sağlıyoruz.</p>
+        <div class="seu-btns">
+          <a href="#free-trial" class="btn-gold">Sınırsız Üniversite Başvurusu</a>
+          <a href="#free-trial" class="btn-outline">Ücretsiz Randevu Alın</a>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-rows:repeat(3,1fr);gap:12px">
+        <img class="seu-img" src="https://static.wixstatic.com/media/1bab39_32c2ca44c02a45f5b92b9a996d567e17~mv2.jpg/v1/fill/w_980,h_980,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/irem-uysal-mert-ergen.jpg" alt="Student 1"/>
+        <img class="seu-img" src="https://static.wixstatic.com/media/1bab39_e834012c4dd94468ab492f19515cbe88~mv2.jpg/v1/fill/w_980,h_1756,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/tugba-korfez-melike-korfez-stanford.jpg" alt="Student 2"/>
+        <img class="seu-img" src="https://static.wixstatic.com/media/1bab39_092f475cff21431ca2d06fed74d1ce10~mv2.jpg/v1/fill/w_980,h_1756,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/zeynep-ceylan.jpg" alt="Student 3"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section id="courses">
+  <div class="container">
+    <div class="s-tag fade">Our Courses</div>
+    <h2 class="s-title fade">Choose From a Variety<br>of Engaging Courses</h2>
+    <p class="s-sub fade" style="margin-bottom:0">Our courses combine structured learning with immersive practice, helping you progress confidently from beginner to advanced levels.</p>
+
+    <div class="courses-tabs" id="courses-tabs">
+      <button class="c-tab active" data-panel="group">Group Live Courses</button>
+      <button class="c-tab" data-panel="private">1-to-1 Lessons</button>
+      <button class="c-tab" data-panel="video">Video Courses</button>
+      <button class="c-tab" data-panel="subs">Subscriptions</button>
+    </div>
+
+    <!-- Group -->
+    <div class="course-panel active" id="panel-group">
+      <div class="filter-tags">
+        <button class="f-tag active">All</button>
+        <button class="f-tag">German</button>
+        <button class="f-tag">French</button>
+        <button class="f-tag">Spanish</button>
+        <button class="f-tag">Chinese</button>
+      </div>
+      <div class="course-grid">
+        <div class="course-card">
+          <img class="cc-img" src="https://static.wixstatic.com/media/6f9a2f9dd5574440a18d95f4679c14a7.jpg/v1/fill/w_5197,h_3465,al_c,q_90,enc_auto/6f9a2f9dd5574440a18d95f4679c14a7.jpg" alt="German"/>
+          <div class="cc-body">
+            <div class="cc-online">Online olarak mevcut</div>
+            <div class="cc-title">German Language Course</div>
+            <p class="cc-desc">Master German with our comprehensive approach to speaking, listening, reading, and writing.</p>
+            <div class="cc-footer"><span class="cc-price">₺2.499</span><a href="#" class="cc-btn">Kursu Görüntüle</a></div>
+          </div>
+        </div>
+        <div class="course-card">
+          <img class="cc-img" src="https://static.wixstatic.com/media/73ba3b7b252b4f5a8d4ac1ee984d89c1.jpg/v1/fill/w_5197,h_3465,al_c,q_90,enc_auto/73ba3b7b252b4f5a8d4ac1ee984d89c1.jpg" alt="French"/>
+          <div class="cc-body">
+            <div class="cc-online">Online olarak mevcut</div>
+            <div class="cc-title">French Language Course</div>
+            <p class="cc-desc">Develop authentic French fluency through our conversation-focused approach with native speakers.</p>
+            <div class="cc-footer"><span class="cc-price">₺2.499</span><a href="#" class="cc-btn">Kursu Görüntüle</a></div>
+          </div>
+        </div>
+        <div class="course-card">
+          <img class="cc-img" src="https://static.wixstatic.com/media/11062b_6bb94769a28949e79fc66f7d963856c6~mv2.jpeg/v1/fill/w_5000,h_3332,al_c,q_90,enc_auto/11062b_6bb94769a28949e79fc66f7d963856c6~mv2.jpeg" alt="Spanish"/>
+          <div class="cc-body">
+            <div class="cc-online">Online olarak mevcut</div>
+            <div class="cc-title">Spanish Language Course</div>
+            <p class="cc-desc">Learn practical Spanish for real-world situations with our dynamic, conversation-based method.</p>
+            <div class="cc-footer"><span class="cc-price">₺2.499</span><a href="#" class="cc-btn">Kursu Görüntüle</a></div>
+          </div>
+        </div>
+        <div class="course-card">
+          <img class="cc-img" src="https://static.wixstatic.com/media/22c5255341e94e10849f20ac18275ef3.jpg/v1/fill/w_5616,h_3744,al_c,q_90,enc_auto/22c5255341e94e10849f20ac18275ef3.jpg" alt="Chinese"/>
+          <div class="cc-body">
+            <div class="cc-online">Online olarak mevcut</div>
+            <div class="cc-title">Chinese Language Course</div>
+            <p class="cc-desc">Demystify Mandarin Chinese with our structured approach to characters, tones, and conversation.</p>
+            <div class="cc-footer"><span class="cc-price">₺2.499</span><a href="#" class="cc-btn">Kursu Görüntüle</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Private -->
+    <div class="course-panel" id="panel-private">
+      <div class="course-grid">
+        <div class="course-card">
+          <img class="cc-img" src="https://static.wixstatic.com/media/11062b_0048a12b1efd41969114c604d25ea6b4~mv2.jpeg/v1/fill/w_6124,h_4082,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/11062b_0048a12b1efd41969114c604d25ea6b4~mv2.jpeg" alt="German Private"/>
+          <div class="cc-body">
+            <div class="cc-online">Online olarak mevcut</div>
+            <div class="cc-title">Private German Lessons</div>
+            <p class="cc-desc">Personalized German instruction tailored to your learning style, pace, and specific goals.</p>
+            <div class="cc-footer"><div><span class="cc-price">₺299</span><div class="cc-time">1 saat</div></div><a href="#" class="cc-btn">Hemen Yer Ayırt</a></div>
+          </div>
+        </div>
+        <div class="course-card">
+          <img class="cc-img" src="https://static.wixstatic.com/media/11062b_e6f594778ee94ed597c59a9452285f8d~mv2.jpg/v1/fill/w_5000,h_3333,al_c,q_90,enc_auto/11062b_e6f594778ee94ed597c59a9452285f8d~mv2.jpg" alt="French Private"/>
+          <div class="cc-body">
+            <div class="cc-online">Online olarak mevcut</div>
+            <div class="cc-title">Private French Lessons</div>
+            <p class="cc-desc">Accelerate your French progress with one-on-one coaching tailored to your unique learning style.</p>
+            <div class="cc-footer"><div><span class="cc-price">₺299</span><div class="cc-time">1 saat</div></div><a href="#" class="cc-btn">Hemen Yer Ayırt</a></div>
+          </div>
+        </div>
+        <div class="course-card">
+          <img class="cc-img" src="https://static.wixstatic.com/media/11062b_94efab28c839400fbe12aee6247ac05f~mv2.jpg/v1/fill/w_6000,h_4000,al_c,q_90,enc_auto/11062b_94efab28c839400fbe12aee6247ac05f~mv2.jpg" alt="Spanish Private"/>
+          <div class="cc-body">
+            <div class="cc-online">Online olarak mevcut</div>
+            <div class="cc-title">Private Spanish Lessons</div>
+            <p class="cc-desc">One-on-one Spanish coaching customized for your goals, schedule, and preferred learning methods.</p>
+            <div class="cc-footer"><div><span class="cc-price">₺299</span><div class="cc-time">1 saat</div></div><a href="#" class="cc-btn">Hemen Yer Ayırt</a></div>
+          </div>
+        </div>
+        <div class="course-card">
+          <img class="cc-img" src="https://static.wixstatic.com/media/11062b_9832fc947e3e4b9ea2a455e85f6658c0~mv2.jpg/v1/fill/w_6000,h_4000,al_c,q_90,enc_auto/11062b_9832fc947e3e4b9ea2a455e85f6658c0~mv2.jpg" alt="Chinese Private"/>
+          <div class="cc-body">
+            <div class="cc-online">Online olarak mevcut</div>
+            <div class="cc-title">Private Chinese Lessons</div>
+            <p class="cc-desc">Master Chinese at your own pace with personalized guidance on pronunciation, characters and grammar.</p>
+            <div class="cc-footer"><div><span class="cc-price">₺299</span><div class="cc-time">1 saat</div></div><a href="#" class="cc-btn">Hemen Yer Ayırt</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="course-panel" id="panel-video">
+      <div class="course-grid">
+        <div class="course-card">
+          <img class="cc-img" src="https://static.wixstatic.com/media/11062b_0472df79ade34a5d8116526e9fa4925bf000.jpg/v1/fit/w_800,h_600,al_c,q_90/file.webp" alt="Spanish Video"/>
+          <div class="cc-body">
+            <div class="cc-online">Self-paced</div>
+            <div class="cc-title">Spanish Made Simple: 30-Day Video Course</div>
+            <p class="cc-desc">From Absolute Beginner to Confident Communicator.</p>
+            <div class="cc-footer"><span class="cc-price">Ücretsiz</span><a href="#" class="cc-btn">Ayrıntıları Görüntüle</a></div>
+          </div>
+        </div>
+        <div class="course-card">
+          <img class="cc-img" src="https://static.wixstatic.com/media/11062b_0472df79ade34a5d8116526e9fa4925bf000.jpg/v1/fit/w_800,h_600,al_c,q_90/file.webp" alt="French Video"/>
+          <div class="cc-body">
+            <div class="cc-online">Self-paced</div>
+            <div class="cc-title">French from Zero to Conversational: 30-Day Video Program</div>
+            <p class="cc-desc">With Native Speaker Guidance.</p>
+            <div class="cc-footer"><span class="cc-price">Ücretsiz</span><a href="#" class="cc-btn">Ayrıntıları Görüntüle</a></div>
+          </div>
+        </div>
+        <div class="course-card">
+          <img class="cc-img" src="https://static.wixstatic.com/media/11062b_0472df79ade34a5d8116526e9fa4925bf000.jpg/v1/fit/w_800,h_600,al_c,q_90/file.webp" alt="German Video"/>
+          <div class="cc-body">
+            <div class="cc-online">Self-paced</div>
+            <div class="cc-title">Learn German at Your Own Pace: 30-Day Video Course</div>
+            <p class="cc-desc">For Complete Beginners to Intermediate Learners.</p>
+            <div class="cc-footer"><span class="cc-price">Ücretsiz</span><a href="#" class="cc-btn">Ayrıntıları Görüntüle</a></div>
+          </div>
+        </div>
+        <div class="course-card">
+          <img class="cc-img" src="https://static.wixstatic.com/media/11062b_0472df79ade34a5d8116526e9fa4925bf000.jpg/v1/fit/w_800,h_600,al_c,q_90/file.webp" alt="Chinese Video"/>
+          <div class="cc-body">
+            <div class="cc-online">Self-paced</div>
+            <div class="cc-title">Mandarin Chinese Fundamentals: 30-Day Video Journey</div>
+            <p class="cc-desc">From Characters to Conversation.</p>
+            <div class="cc-footer"><span class="cc-price">Ücretsiz</span><a href="#" class="cc-btn">Ayrıntıları Görüntüle</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subs -->
+    <div class="course-panel" id="panel-subs">
+      <p style="color:var(--fg2);margin-bottom:40px">Size en uygun abonelik planını bulun</p>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-plan">Standard</div>
+          <div class="price-amount"><sup>₺</sup>89</div>
+          <div class="price-period">Her ay</div>
+          <div class="price-joining">+₺50 Joining Fee</div>
+          <div class="price-trial">3 gün ücretsiz deneme</div>
+          <div class="price-divider"></div>
+          <div class="price-features">
+            <div class="price-feature">Unlimited Self-paced Video Courses</div>
+            <div class="price-feature">Certificate of completion</div>
+          </div>
+          <button class="price-btn">Seç</button>
+        </div>
+        <div class="price-card featured">
+          <div class="price-featured-badge">Most Popular</div>
+          <div class="price-plan">Pro</div>
+          <div class="price-amount"><sup>₺</sup>890</div>
+          <div class="price-period">Her ay</div>
+          <div class="price-joining">+₺50 Joining Fee</div>
+          <div class="price-trial">3 gün ücretsiz deneme</div>
+          <div class="price-divider"></div>
+          <div class="price-features">
+            <div class="price-feature">Unlimited Self-Paced Video Courses</div>
+            <div class="price-feature">1-to-1 Lessons – 4 per month</div>
+            <div class="price-feature">Certificate of Completion</div>
+            <div class="price-feature">Flexible Start Date</div>
+          </div>
+          <button class="price-btn">Seç</button>
+        </div>
+        <div class="price-card">
+          <div class="price-plan">Premium</div>
+          <div class="price-amount"><sup>₺</sup>1.890</div>
+          <div class="price-period">Her ay</div>
+          <div class="price-joining">+₺50 Joining Fee</div>
+          <div class="price-trial">3 gün ücretsiz deneme</div>
+          <div class="price-divider"></div>
+          <div class="price-features">
+            <div class="price-feature">Unlimited Self-paced Video Courses</div>
+            <div class="price-feature">1-to-1 Lessons – 10 per month</div>
+            <div class="price-feature">Certificate of Completion</div>
+            <div class="price-feature">Flexible Start Date</div>
+          </div>
+          <button class="price-btn">Seç</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING STANDALONE -->
+<section id="pricing" style="background:var(--dark3)">
+  <div class="container">
+    <div class="s-tag fade">Subscriptions</div>
+    <h2 class="s-title fade">Choose Your Pricing Plan</h2>
+    <p class="s-sub fade">Size en uygun abonelik planını bulun</p>
+    <div class="pricing-grid" style="margin-top:48px">
+      <div class="price-card fade">
+        <div class="price-plan">Standard</div>
+        <div class="price-amount"><sup>₺</sup>89</div>
+        <div class="price-period">Her ay</div>
+        <div class="price-joining">+₺50 Joining Fee</div>
+        <div class="price-trial">3 gün ücretsiz deneme</div>
+        <div class="price-divider"></div>
+        <div class="price-features">
+          <div class="price-feature">Unlimited Self-paced Video Courses</div>
+          <div class="price-feature">Certificate of completion</div>
+        </div>
+        <button class="price-btn">Seç</button>
+      </div>
+      <div class="price-card featured fade">
+        <div class="price-featured-badge">Most Popular</div>
+        <div class="price-plan">Pro</div>
+        <div class="price-amount"><sup>₺</sup>890</div>
+        <div class="price-period">Her ay</div>
+        <div class="price-joining">+₺50 Joining Fee</div>
+        <div class="price-trial">3 gün ücretsiz deneme</div>
+        <div class="price-divider"></div>
+        <div class="price-features">
+          <div class="price-feature">Unlimited Self-Paced Video Courses</div>
+          <div class="price-feature">1-to-1 Lessons – 4 per month</div>
+          <div class="price-feature">Certificate of Completion</div>
+          <div class="price-feature">Flexible Start Date</div>
+        </div>
+        <button class="price-btn">Seç</button>
+      </div>
+      <div class="price-card fade">
+        <div class="price-plan">Premium</div>
+        <div class="price-amount"><sup>₺</sup>1.890</div>
+        <div class="price-period">Her ay</div>
+        <div class="price-joining">+₺50 Joining Fee</div>
+        <div class="price-trial">3 gün ücretsiz deneme</div>
+        <div class="price-divider"></div>
+        <div class="price-features">
+          <div class="price-feature">Unlimited Self-paced Video Courses</div>
+          <div class="price-feature">1-to-1 Lessons – 10 per month</div>
+          <div class="price-feature">Certificate of Completion</div>
+          <div class="price-feature">Flexible Start Date</div>
+        </div>
+        <button class="price-btn">Seç</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="s-tag fade">Support</div>
+    <h2 class="s-title fade">Frequently Asked Questions</h2>
+    <div class="faq-list fade">
+      <div class="faq-item">
+        <button class="faq-q">What is an FAQ section?<span class="faq-arrow">+</span></button>
+        <div class="faq-a">An FAQ section can be used to quickly answer common questions about your business like "Where do you ship to?", "What are your opening hours?", or "How can I book a service?".</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Why do FAQs matter?<span class="faq-arrow">+</span></button>
+        <div class="faq-a">FAQs are a great way to help site visitors find quick answers to common questions about your business and create a better navigation experience.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Where can I add my FAQs?<span class="faq-arrow">+</span></button>
+        <div class="faq-a">FAQs can be added to any page on your site or to your Wix mobile app, giving access to members on the go.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How do I add a new question & answer?<span class="faq-arrow">+</span></button>
+        <div class="faq-a">To add a new FAQ follow these steps: 1. Manage FAQs from your site dashboard or in the Editor. 2. Add a new question & answer. 3. Assign your FAQ to a category. 4. Save and publish.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I insert an image, video, or GIF in my FAQ?<span class="faq-arrow">+</span></button>
+        <div class="faq-a">Yes. To add media follow these steps: 1. Manage FAQs from your site dashboard or in the Editor. 2. Create a new FAQ or edit an existing one. 3. From the answer text box click on the video, image or GIF icon. 4. Add media from your library and save.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How do I edit or remove the FAQ title?<span class="faq-arrow">+</span></button>
+        <div class="faq-a">You can edit the title from the FAQ 'Settings' tab in the Editor. To remove the title from your mobile app go to the 'Site & App' tab in your Owner's app and customize.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events" style="background:var(--dark2)">
+  <div class="container">
+    <div class="s-tag fade">Upcoming online events</div>
+    <h2 class="s-title fade">Join Our Webinars</h2>
+    <div class="events-grid">
+      <div class="event-card fade">
+        <img class="ev-img" src="https://static.wixstatic.com/media/11062b_bb6d267beb9a4d48abbd3cac4f32ab65~mv2.jpeg/v1/fill/w_980,h_653,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_bb6d267beb9a4d48abbd3cac4f32ab65~mv2.jpeg" alt="German Event"/>
+        <div class="ev-body">
+          <div class="ev-tag">Webinar</div>
+          <div class="ev-title">German Language Course Presentation: From Basics to Fluency</div>
+          <div class="ev-meta">Date and time is TBD</div>
+          <a href="#" class="ev-link">Daha Fazla Bilgi</a>
+        </div>
+      </div>
+      <div class="event-card fade">
+        <img class="ev-img" src="https://static.wixstatic.com/media/11062b_f874bb66407d445489108554bbe84a1f~mv2.jpeg/v1/fill/w_980,h_653,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_f874bb66407d445489108554bbe84a1f~mv2.jpeg" alt="Chinese Event"/>
+        <div class="ev-body">
+          <div class="ev-tag">Webinar</div>
+          <div class="ev-title">Mandarin Chinese Course Presentation: Demystifying Characters & Tones</div>
+          <div class="ev-meta">Date and time is TBD</div>
+          <a href="#" class="ev-link">Daha Fazla Bilgi</a>
+        </div>
+      </div>
+      <div class="event-card fade">
+        <img class="ev-img" src="https://static.wixstatic.com/media/11062b_9d4f3baa30624c91a942aca5272ddf36~mv2.jpeg/v1/fill/w_980,h_653,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_9d4f3baa30624c91a942aca5272ddf36~mv2.jpeg" alt="Spanish Event"/>
+        <div class="ev-body">
+          <div class="ev-tag">Webinar</div>
+          <div class="ev-title">Spanish Language Course Presentation: Unlock Conversational Fluency</div>
+          <div class="ev-meta">Date and time is TBD</div>
+          <a href="#" class="ev-link">Daha Fazla Bilgi</a>
+        </div>
+      </div>
+      <div class="event-card fade">
+        <img class="ev-img" src="https://static.wixstatic.com/media/11062b_3447256804b642f0b47ed263358c3334~mv2.jpg/v1/fill/w_980,h_653,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_3447256804b642f0b47ed263358c3334~mv2.jpg" alt="French Event"/>
+        <div class="ev-body">
+          <div class="ev-tag">Webinar</div>
+          <div class="ev-title">French Language Course Presentation: Your Path to Parisian Eloquence</div>
+          <div class="ev-meta">Date and time is TBD</div>
+          <a href="#" class="ev-link">Daha Fazla Bilgi</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="newsletter">
+  <div class="container">
+    <div class="nl-inner fade">
+      <div class="s-tag" style="text-align:center">Stay Updated</div>
+      <h2 class="nl-title">İletişim ve Etkinlik Topluluğumuza Abone Olun</h2>
+      <p class="nl-sub">Gelişmelerden haberdar olmak için bültenimize abone olun.</p>
+      <label class="nl-check">
+        <input type="checkbox"/>
+        Gelişmelerden haberdar olmak için bültene abone olmak istiyorum.
+      </label>
+      <div class="nl-form">
+        <input class="nl-input" type="email" placeholder="Email*"/>
+        <button class="btn-gold">ONAYLA</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="container">
+    <div class="s-tag fade">Latest news</div>
+    <h2 class="s-title fade">From Our Blog</h2>
+    <div class="blog-grid">
+      <div class="blog-card fade">
+        <img class="blog-img" src="https://static.wixstatic.com/media/11062b_398fe0d876544f9a9b947fa716d0c1f7~mv2.jpg/v1/fill/w_320,h_180,fp_0.50_0.50,q_90,enc_avif,quality_auto/11062b_398fe0d876544f9a9b947fa716d0c1f7~mv2.webp" alt="Blog 1"/>
+        <div class="blog-body">
+          <div class="blog-date">17 Nis 2025 · 1 dakikada okunur</div>
+          <div class="blog-title">The Immersion Method: Language Learning That Actually Works</div>
+          <p class="blog-desc">Traditional language education often focuses too heavily on grammar rules and memorization, leaving students unable to hold basic conversations...</p>
+        </div>
+      </div>
+      <div class="blog-card fade">
+        <img class="blog-img" src="https://static.wixstatic.com/media/11062b_6d756a8d3bff43498732c588f6e69a1b~mv2.jpg/v1/fill/w_320,h_180,fp_0.50_0.50,q_90,enc_avif,quality_auto/11062b_6d756a8d3bff43498732c588f6e69a1b~mv2.webp" alt="Blog 2"/>
+        <div class="blog-body">
+          <div class="blog-date">17 Nis 2025 · 1 dakikada okunur</div>
+          <div class="blog-title">Why Learning a Second Language Boosts Your Career</div>
+          <p class="blog-desc">In today's global job market, multilingual professionals earn significantly more than their monolingual counterparts...</p>
+        </div>
+      </div>
+      <div class="blog-card fade">
+        <img class="blog-img" src="https://static.wixstatic.com/media/0721e1cfb61547379ca3e86ef4ec9232.jpg/v1/fill/w_320,h_180,fp_0.50_0.50,q_90,enc_avif,quality_auto/0721e1cfb61547379ca3e86ef4ec9232.webp" alt="Blog 3"/>
+        <div class="blog-body">
+          <div class="blog-date">17 Nis 2025 · 1 dakikada okunur</div>
+          <div class="blog-title">5 Myths About Learning Chinese Debunked</div>
+          <p class="blog-desc">Many people believe Chinese is the hardest language to learn, but this isn't necessarily true. With the right approach...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FREE TRIAL -->
+<section id="free-trial">
+  <div class="container">
+    <div class="ft-tag s-tag fade">Free Trial Lesson</div>
+    <h2 class="ft-title fade">Free Trial Lesson</h2>
+    <p class="ft-sub fade">Unsure where to start? Book a complimentary 30-minute session to experience our teaching approach. Müsaitlik durumumuzu kontrol edin, size uygun bir tarih ve saati seçin.</p>
+    <a href="mailto:info@mysite.com" class="btn-gold fade" style="display:inline-block">Book Now</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">EUROPEUNI.com</div>
+        <p class="footer-copy">© 2035 by Language Courses.<br>Created on Wix Studio.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Menu</div>
+        <div class="footer-links">
+          <a href="#hero">Home</a>
+          <a href="#courses">Live Courses</a>
+          <a href="#courses">Video Courses</a>
+          <a href="#events">Events</a>
+          <a href="#pricing">Subscribe</a>
+          <a href="#blog">Blog</a>
+        </div>
+      </div>
+      <div class="footer-contact">
+        <div class="footer-col-title">Contact Us</div>
+        <p><a href="mailto:info@mysite.com">info@mysite.com</a><br>Tel. 123-456-7890<br>Fax. 123-456-7890</p>
+        <div style="margin-top:20px;display:flex;gap:12px">
+          <a href="#" style="color:var(--fg2);font-size:12px;transition:color .2s">Privacy Policy</a>
+          <a href="#" style="color:var(--fg2);font-size:12px;transition:color .2s">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-copy">© 2035 Language Courses. All rights reserved.</div>
+      <a href="#hero" class="back-top">↑ Back to top</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll
+  window.addEventListener('scroll',()=>{
+    document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60)
+  })
+
+  // Hamburger
+  const mob=document.getElementById('mobile-menu')
+  document.getElementById('hamburger').addEventListener('click',()=>mob.classList.toggle('open'))
+  mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mob.classList.remove('open')))
+
+  // Tabs
+  document.getElementById('courses-tabs').querySelectorAll('.c-tab').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.c-tab').forEach(b=>b.classList.remove('active'))
+      document.querySelectorAll('.course-panel').forEach(p=>p.classList.remove('active'))
+      btn.classList.add('active')
+      document.getElementById('panel-'+btn.dataset.panel).classList.add('active')
+    })
+  })
+
+  // Filter tags (cosmetic)
+  document.querySelectorAll('.filter-tags').forEach(group=>{
+    group.querySelectorAll('.f-tag').forEach(t=>{
+      t.addEventListener('click',()=>{
+        group.querySelectorAll('.f-tag').forEach(x=>x.classList.remove('active'))
+        t.classList.add('active')
+      })
+    })
+  })
+
+  // FAQ
+  document.querySelectorAll('.faq-q').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const a=btn.nextElementSibling
+      const open=a.classList.contains('open')
+      document.querySelectorAll('.faq-a').forEach(x=>x.classList.remove('open'))
+      document.querySelectorAll('.faq-q').forEach(x=>x.classList.remove('open'))
+      if(!open){a.classList.add('open');btn.classList.add('open')}
+    })
+  })
+
+  // Fade in
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){
+        setTimeout(()=>e.target.classList.add('in'),i*60)
+        io.unobserve(e.target)
+      }
+    })
+  },{threshold:.1})
+  document.querySelectorAll('.fade').forEach(el=>io.observe(el))
+</script>
 </body>
 </html>
