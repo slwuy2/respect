@@ -17,18 +17,23 @@
             <div class="logo">Language<span>Pro</span></div>
             <ul class="nav-links">
                 <li><a href="#home">Ana Sayfa</a></li>
-                <li><a href="#courses">Kurslar</a></li>
+                <li><a href="#quiz">Seviye Testi</a></li>
                 <li><a href="#pricing">Abonelikler</a></li>
                 <li><a href="#booking">Randevu Al</a></li>
-                <li><a href="#faq">SSS</a></li>
-                <li><a href="#pricing" class="nav-cta">Hemen Başla</a></li>
+                <li id="nav-dashboard" style="display:none;"><a href="#dashboard" class="special-link">Panelim</a></li>
             </ul>
-            <div class="lang-selector">
-                <i class="fas fa-globe"></i>
-                <select>
-                    <option value="tr">TR</option>
-                    <option value="en">EN</option>
-                </select>
+            <div class="header-actions">
+                <button id="dark-mode-toggle" class="icon-btn">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="lang-selector">
+                    <i class="fas fa-globe"></i>
+                    <select>
+                        <option value="tr">TR</option>
+                        <option value="en">EN</option>
+                    </select>
+                </div>
+                <button id="login-trigger" class="btn btn-outline small">Giriş Yap</button>
             </div>
         </nav>
     </header>
@@ -42,7 +47,39 @@
                 <p>Modern eğitim teknikleri, ana dili İngilizce olan eğitmenler ve size özel programlarla hayalinizdeki dile kavuşun.</p>
                 <div class="hero-btns">
                     <a href="#pricing" class="btn btn-primary">Planları İncele</a>
-                    <a href="#booking" class="btn btn-secondary">Deneme Dersi Al</a>
+                    <a href="#quiz" class="btn btn-secondary">Seviye Testine Başla</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Placement Test (Quiz) Section -->
+        <section id="quiz" class="quiz-section bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Hangi Seviyedesiniz?</h2>
+                    <p>3 dakikalık testimizi çözün, size en uygun başlangıç noktasını belirleyelim.</p>
+                </div>
+                <div class="quiz-container" id="quiz-box">
+                    <div id="quiz-intro">
+                        <i class="fas fa-graduation-cap fa-3x mb-2"></i>
+                        <h3>İngilizce Seviye Belirleme Testi</h3>
+                        <p>10 soruda mevcut durumunuzu görün.</p>
+                        <button class="btn btn-primary" onclick="startQuiz()">Teste Başla</button>
+                    </div>
+                    <div id="quiz-questions" style="display:none;">
+                        <div class="quiz-progress">
+                            <div class="progress-bar" id="quiz-bar"></div>
+                        </div>
+                        <h4 id="question-text">Soru metni buraya gelecek...</h4>
+                        <div class="options-grid" id="options-container">
+                            <!-- Seçenekler JS ile buraya gelecek -->
+                        </div>
+                    </div>
+                    <div id="quiz-result" style="display:none;">
+                        <h3>Tebrikler! Seviyeniz: <span id="level-result">B1 - Intermediate</span></h3>
+                        <p>Hemen size uygun kurslara göz atın.</p>
+                        <button class="btn btn-primary" onclick="location.href='#pricing'">Kursları İncele</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -55,7 +92,6 @@
                     <p>Size en uygun planı seçin ve hemen öğrenmeye başlayın.</p>
                 </div>
                 <div class="pricing-grid">
-                    <!-- Standard Plan -->
                     <div class="pricing-card">
                         <div class="pricing-header">
                             <h3>STANDARD</h3>
@@ -71,7 +107,6 @@
                         <button class="btn btn-outline checkout-trigger" data-plan="Standard" data-price="89">Planı Seç</button>
                     </div>
 
-                    <!-- Pro Plan (Most Popular) -->
                     <div class="pricing-card featured">
                         <div class="popular-badge">En Çok Tercih Edilen</div>
                         <div class="pricing-header">
@@ -88,7 +123,6 @@
                         <button class="btn btn-primary checkout-trigger" data-plan="Pro" data-price="890">Hemen Başla</button>
                     </div>
 
-                    <!-- Premium Plan -->
                     <div class="pricing-card">
                         <div class="pricing-header">
                             <h3>PREMIUM</h3>
@@ -107,7 +141,57 @@
             </div>
         </section>
 
-        <!-- Booking & Calendar Section -->
+        <!-- Student Dashboard Section (Hidden by default) -->
+        <section id="dashboard" class="dashboard-section" style="display:none;">
+            <div class="container">
+                <div class="dashboard-grid">
+                    <aside class="dashboard-sidebar">
+                        <div class="user-profile">
+                            <div class="avatar">EC</div>
+                            <h4>Efe Çolak</h4>
+                            <p>Premium Üye</p>
+                        </div>
+                        <nav class="sidebar-nav">
+                            <a href="#" class="active"><i class="fas fa-home"></i> Özet</a>
+                            <a href="#"><i class="fas fa-play-circle"></i> Kurslarım</a>
+                            <a href="#"><i class="fas fa-calendar-alt"></i> Randevularım</a>
+                            <a href="#"><i class="fas fa-certificate"></i> Sertifikalarım</a>
+                            <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</a>
+                        </nav>
+                    </aside>
+                    <div class="dashboard-main">
+                        <h2 class="section-title">Öğrenci Paneli</h2>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <h3>%75</h3>
+                                <p>Genel İlerleme</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>12</h3>
+                                <p>Tamamlanan Ders</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>2</h3>
+                                <p>Yaklaşan Randevu</p>
+                            </div>
+                        </div>
+                        <div class="recent-activity">
+                            <h3>Son Etkinlikler</h3>
+                            <div class="activity-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>"Present Continuous" dersi tamamlandı.</span>
+                            </div>
+                            <div class="activity-item">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Yarın 14:00'te Özel Dersiniz var.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
         <section id="booking" class="booking-section bg-light">
             <div class="container">
                 <div class="booking-wrapper">
@@ -156,33 +240,32 @@
                 </div>
             </div>
         </section>
-
-        <!-- FAQ Section -->
-        <section id="faq" class="faq-section">
-            <div class="container">
-                <h2 class="section-title">Sıkça Sorulan Sorular</h2>
-                <div class="accordion">
-                    <div class="accordion-item">
-                        <button class="accordion-header">Dersler ne kadar sürüyor? <i class="fas fa-chevron-down"></i></button>
-                        <div class="accordion-content">
-                            <p>Grup derslerimiz genellikle 60-90 dakika sürerken, özel dersler ihtiyacınıza göre 45-120 dakika arası planlanabilir.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header">Ödeme yöntemleri nelerdir? <i class="fas fa-chevron-down"></i></button>
-                        <div class="accordion-content">
-                            <p>Kredi kartı, banka kartı ve havale yöntemleriyle güvenli ödeme yapabilirsiniz. Tüm işlemlerimiz 256-bit SSL ile korunmaktadır.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('login-modal')">&times;</span>
+            <h2>Giriş Yap</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label>E-posta</label>
+                    <input type="email" placeholder="ornek@mail.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Şifre</label>
+                    <input type="password" placeholder="********" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Giriş Yap</button>
+                <p style="margin-top:1rem; text-align:center;"><small>Deneme için herhangi bir bilgiyle girebilirsiniz.</small></p>
+            </form>
+        </div>
+    </div>
 
     <!-- Payment/Checkout Modal -->
     <div id="checkout-modal" class="modal">
         <div class="modal-content">
-            <span class="close-modal">&times;</span>
+            <span class="close-modal" onclick="closeModal('checkout-modal')">&times;</span>
             <h2>Ödeme İşlemi</h2>
             <div id="selected-plan-info"></div>
             <form id="payment-form" action="https://formspree.io/f/efe.colak977@gmail.com" method="POST">
@@ -209,6 +292,12 @@
             </form>
         </div>
     </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/905000000000" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span>Canlı Destek</span>
+    </a>
 
     <footer>
         <div class="container footer-content">
