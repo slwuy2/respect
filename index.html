@@ -3,82 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Language Pro | Dil Öğreniminde Uzmanlık</title>
+    <title>Language Courses | Dil Okulu</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome for icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <!-- Navigation -->
+<body data-lang="tr">
+    <!-- Header -->
     <header>
         <nav class="container">
-            <div class="logo">Language<span>Pro</span></div>
+            <div class="logo">Language<span>Courses</span></div>
             <ul class="nav-links">
-                <li><a href="#home">Ana Sayfa</a></li>
-                <li><a href="#quiz">Seviye Testi</a></li>
-                <li><a href="#pricing">Abonelikler</a></li>
-                <li><a href="#booking">Randevu Al</a></li>
-                <li id="nav-dashboard" style="display:none;"><a href="#dashboard" class="special-link">Panelim</a></li>
+                <li><a href="#home" data-key="nav_home">Ana Sayfa</a></li>
+                <li><a href="#courses" data-key="nav_courses">Kurslar</a></li>
+                <li><a href="#teachers" data-key="nav_teachers">Eğitmenler</a></li>
+                <li><a href="#pricing" data-key="nav_pricing">Abonelikler</a></li>
+                <li><a href="#contact" data-key="nav_contact">İletişim</a></li>
             </ul>
             <div class="header-actions">
-                <button id="dark-mode-toggle" class="icon-btn">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <div class="lang-selector">
-                    <i class="fas fa-globe"></i>
-                    <select>
-                        <option value="tr">TR</option>
-                        <option value="en">EN</option>
-                    </select>
+                <div class="lang-switch">
+                    <span id="lang-tr" class="active">TR</span> | <span id="lang-en">EN</span>
                 </div>
-                <button id="login-trigger" class="btn btn-outline small">Giriş Yap</button>
+                <button id="dark-mode-toggle" class="icon-btn"><i class="fas fa-moon"></i></button>
+                <button id="login-trigger" class="btn btn-outline" data-key="login_btn">Giriş Yap</button>
             </div>
         </nav>
     </header>
 
-    <main id="home">
+    <main>
         <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="container hero-content">
-                <span class="badge">Sınırlı Süreli Teklif: %20 İndirim</span>
-                <h1>Dil Öğrenme Yolculuğunuz Burada Başlıyor</h1>
-                <p>Modern eğitim teknikleri, ana dili İngilizce olan eğitmenler ve size özel programlarla hayalinizdeki dile kavuşun.</p>
-                <div class="hero-btns">
-                    <a href="#pricing" class="btn btn-primary">Planları İncele</a>
-                    <a href="#quiz" class="btn btn-secondary">Seviye Testine Başla</a>
+        <section id="home" class="hero-section">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <h1 data-key="hero_title">Potansiyelinizi Uzman Dil Eğitimiyle Keşfedin</h1>
+                    <p data-key="hero_desc">Akademik hedefler, kariyer gelişimi veya kişisel büyüme için tasarlanmış, her seviyeye uygun kapsamlı dil programlarımızla akıcılığa ulaşın.</p>
+                    <div class="hero-btns">
+                        <a href="#pricing" class="btn btn-primary" data-key="hero_btn_primary">Hemen Başla</a>
+                        <a href="#booking" class="btn btn-secondary" data-key="hero_btn_secondary">Ücretsiz Deneme Dersi</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1523240715630-9918c1c46e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Language Learning">
                 </div>
             </div>
         </section>
 
-        <!-- Placement Test (Quiz) Section -->
-        <section id="quiz" class="quiz-section bg-light">
+        <!-- Features -->
+        <section class="features container">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
+                <h3 data-key="feat_1_title">Anadilinde Konuşanlar</h3>
+                <p data-key="feat_1_desc">Kitapların öğretemediği otantik telaffuz ve kültürel incelikleri uzman eğitmenlerimizden öğrenin.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-book-reader"></i></div>
+                <h3 data-key="feat_2_title">İmmersif Metot</h3>
+                <p data-key="feat_2_desc">İlk günden itibaren pratik konuşmaya odaklanan yaklaşımımızla doğal konuşma becerileri geliştirin.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-users"></i></div>
+                <h3 data-key="feat_3_title">Küçük Grup Sınıfları</h3>
+                <p data-key="feat_3_desc">Maksimum 6 kişilik sınıflarda kişiselleştirilmiş geri bildirim ve bolca konuşma süresi elde edin.</p>
+            </div>
+        </section>
+
+        <!-- Teachers Section -->
+        <section id="teachers" class="teachers-section bg-light">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Hangi Seviyedesiniz?</h2>
-                    <p>3 dakikalık testimizi çözün, size en uygun başlangıç noktasını belirleyelim.</p>
-                </div>
-                <div class="quiz-container" id="quiz-box">
-                    <div id="quiz-intro">
-                        <i class="fas fa-graduation-cap fa-3x mb-2"></i>
-                        <h3>İngilizce Seviye Belirleme Testi</h3>
-                        <p>10 soruda mevcut durumunuzu görün.</p>
-                        <button class="btn btn-primary" onclick="startQuiz()">Teste Başla</button>
+                <h2 class="section-title" data-key="teachers_title">Uzman Eğitmenlerimizle Tanışın</h2>
+                <div class="teachers-grid">
+                    <div class="teacher-card">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Isabelle Dupont">
+                        <h4>Isabelle Dupont</h4>
+                        <p data-key="teacher_1_role">Fransızca Uzmanı</p>
                     </div>
-                    <div id="quiz-questions" style="display:none;">
-                        <div class="quiz-progress">
-                            <div class="progress-bar" id="quiz-bar"></div>
-                        </div>
-                        <h4 id="question-text">Soru metni buraya gelecek...</h4>
-                        <div class="options-grid" id="options-container">
-                            <!-- Seçenekler JS ile buraya gelecek -->
-                        </div>
+                    <div class="teacher-card">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Markus Heidelberg">
+                        <h4>Markus Heidelberg</h4>
+                        <p data-key="teacher_2_role">Almanca Uzmanı</p>
                     </div>
-                    <div id="quiz-result" style="display:none;">
-                        <h3>Tebrikler! Seviyeniz: <span id="level-result">B1 - Intermediate</span></h3>
-                        <p>Hemen size uygun kurslara göz atın.</p>
-                        <button class="btn btn-primary" onclick="location.href='#pricing'">Kursları İncele</button>
+                    <div class="teacher-card">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Wei-Lin Zhang">
+                        <h4>Wei-Lin Zhang</h4>
+                        <p data-key="teacher_3_role">Mandarin Uzmanı</p>
                     </div>
                 </div>
             </div>
@@ -87,228 +96,107 @@
         <!-- Pricing Section -->
         <section id="pricing" class="pricing-section">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Abonelik Planlarımız</h2>
-                    <p>Size en uygun planı seçin ve hemen öğrenmeye başlayın.</p>
-                </div>
+                <h2 class="section-title" data-key="pricing_title">Abonelik Planları</h2>
                 <div class="pricing-grid">
                     <div class="pricing-card">
-                        <div class="pricing-header">
-                            <h3>STANDARD</h3>
-                            <div class="price">89₺ <span>/ ay</span></div>
-                            <p class="fee">+50₺ Kayıt Ücreti</p>
-                        </div>
+                        <h3 data-key="plan_std_name">STANDARD</h3>
+                        <div class="price">89₺ <span>/ ay</span></div>
                         <ul class="pricing-features">
-                            <li><i class="fas fa-check"></i> Sınırsız Video Kurs Erişimi</li>
-                            <li><i class="fas fa-check"></i> Başarı Sertifikası</li>
-                            <li><i class="fas fa-check"></i> Topluluk Erişimi</li>
-                            <li class="disabled"><i class="fas fa-times"></i> 1-e-1 Özel Ders</li>
+                            <li data-key="plan_std_feat_1">Sınırsız Video Kurs</li>
+                            <li data-key="plan_std_feat_2">Sertifika</li>
+                            <li class="disabled" data-key="plan_std_feat_3">1-e-1 Özel Ders</li>
                         </ul>
-                        <button class="btn btn-outline checkout-trigger" data-plan="Standard" data-price="89">Planı Seç</button>
+                        <button class="btn btn-outline checkout-trigger" data-plan="Standard" data-price="89" data-key="plan_btn">Planı Seç</button>
                     </div>
-
                     <div class="pricing-card featured">
-                        <div class="popular-badge">En Çok Tercih Edilen</div>
-                        <div class="pricing-header">
-                            <h3>PRO</h3>
-                            <div class="price">890₺ <span>/ ay</span></div>
-                            <p class="fee">+50₺ Kayıt Ücreti</p>
-                        </div>
+                        <div class="popular-tag" data-key="plan_pro_tag">EN KAZANÇLI</div>
+                        <h3 data-key="plan_pro_name">PRO</h3>
+                        <div class="price">890₺ <span>/ ay</span></div>
                         <ul class="pricing-features">
-                            <li><i class="fas fa-check"></i> Sınırsız Video Kurs Erişimi</li>
-                            <li><i class="fas fa-check"></i> Ayda 4 Saat 1-e-1 Özel Ders</li>
-                            <li><i class="fas fa-check"></i> Başarı Sertifikası</li>
-                            <li><i class="fas fa-check"></i> Esnek Başlangıç Tarihi</li>
+                            <li data-key="plan_pro_feat_1">Sınırsız Video Kurs</li>
+                            <li data-key="plan_pro_feat_2">Ayda 4 Saat Özel Ders</li>
+                            <li data-key="plan_pro_feat_3">Sertifika</li>
                         </ul>
-                        <button class="btn btn-primary checkout-trigger" data-plan="Pro" data-price="890">Hemen Başla</button>
+                        <button class="btn btn-primary checkout-trigger" data-plan="Pro" data-price="890" data-key="plan_btn">Hemen Başla</button>
                     </div>
-
                     <div class="pricing-card">
-                        <div class="pricing-header">
-                            <h3>PREMIUM</h3>
-                            <div class="price">1.890₺ <span>/ ay</span></div>
-                            <p class="fee">+50₺ Kayıt Ücreti</p>
-                        </div>
+                        <h3 data-key="plan_prem_name">PREMIUM</h3>
+                        <div class="price">1.890₺ <span>/ ay</span></div>
                         <ul class="pricing-features">
-                            <li><i class="fas fa-check"></i> Sınırsız Video Kurs Erişimi</li>
-                            <li><i class="fas fa-check"></i> Ayda 10 Saat 1-e-1 Özel Ders</li>
-                            <li><i class="fas fa-check"></i> VIP Destek</li>
-                            <li><i class="fas fa-check"></i> Özel Müfredat</li>
+                            <li data-key="plan_prem_feat_1">Sınırsız Video Kurs</li>
+                            <li data-key="plan_prem_feat_2">Ayda 10 Saat Özel Ders</li>
+                            <li data-key="plan_prem_feat_3">VIP Destek</li>
                         </ul>
-                        <button class="btn btn-outline checkout-trigger" data-plan="Premium" data-price="1890">Premium'a Geç</button>
+                        <button class="btn btn-outline checkout-trigger" data-plan="Premium" data-price="1890" data-key="plan_btn">Planı Seç</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Student Dashboard Section (Hidden by default) -->
-        <section id="dashboard" class="dashboard-section" style="display:none;">
-            <div class="container">
-                <div class="dashboard-grid">
-                    <aside class="dashboard-sidebar">
-                        <div class="user-profile">
-                            <div class="avatar">EC</div>
-                            <h4>Efe Çolak</h4>
-                            <p>Premium Üye</p>
-                        </div>
-                        <nav class="sidebar-nav">
-                            <a href="#" class="active"><i class="fas fa-home"></i> Özet</a>
-                            <a href="#"><i class="fas fa-play-circle"></i> Kurslarım</a>
-                            <a href="#"><i class="fas fa-calendar-alt"></i> Randevularım</a>
-                            <a href="#"><i class="fas fa-certificate"></i> Sertifikalarım</a>
-                            <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</a>
-                        </nav>
-                    </aside>
-                    <div class="dashboard-main">
-                        <h2 class="section-title">Öğrenci Paneli</h2>
-                        <div class="stats-grid">
-                            <div class="stat-card">
-                                <h3>%75</h3>
-                                <p>Genel İlerleme</p>
-                            </div>
-                            <div class="stat-card">
-                                <h3>12</h3>
-                                <p>Tamamlanan Ders</p>
-                            </div>
-                            <div class="stat-card">
-                                <h3>2</h3>
-                                <p>Yaklaşan Randevu</p>
-                            </div>
-                        </div>
-                        <div class="recent-activity">
-                            <h3>Son Etkinlikler</h3>
-                            <div class="activity-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>"Present Continuous" dersi tamamlandı.</span>
-                            </div>
-                            <div class="activity-item">
-                                <i class="fas fa-calendar-check"></i>
-                                <span>Yarın 14:00'te Özel Dersiniz var.</span>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Contact & Booking -->
+        <section id="contact" class="booking-section bg-light">
+            <div class="container booking-grid">
+                <div class="booking-form-box">
+                    <h2 data-key="booking_title">Randevu Alın</h2>
+                    <form id="booking-form" action="https://formspree.io/efe.colak977@gmail.com" method="POST">
+                        <input type="text" name="name" placeholder="Adınız Soyadınız" required>
+                        <input type="email" name="email" placeholder="E-posta Adresiniz" required>
+                        <select name="service">
+                            <option value="trial" data-key="opt_trial">Ücretsiz Deneme Dersi</option>
+                            <option value="consultation" data-key="opt_consult">Akademik Danışmanlık</option>
+                        </select>
+                        <textarea name="message" placeholder="Mesajınız" data-key="placeholder_msg"></textarea>
+                        <button type="submit" class="btn btn-primary w-100" data-key="booking_btn">Gönder</button>
+                    </form>
                 </div>
-            </div>
-        </section>
-
-        <!-- Booking Section -->
-        <section id="booking" class="booking-section bg-light">
-            <div class="container">
-                <div class="booking-wrapper">
-                    <div class="booking-info">
-                        <h2 class="section-title">Deneme Dersi Randevusu</h2>
-                        <p>Eğitmenlerimizle tanışmak ve seviyenizi belirlemek için hemen bir randevu oluşturun.</p>
-                        <div class="info-items">
-                            <div class="info-item">
-                                <i class="fas fa-clock"></i>
-                                <span>30 Dakika Ücretsiz</span>
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-video"></i>
-                                <span>Online Görüşme (Zoom/Meet)</span>
-                            </div>
-                        </div>
+                <div class="contact-info">
+                    <h2 data-key="contact_title">İletişime Geçin</h2>
+                    <p data-key="contact_desc">Her türlü sorunuz için buradayız. Bize ulaşmaktan çekinmeyin.</p>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>efe.colak977@gmail.com</span>
                     </div>
-                    <div class="calendar-container">
-                        <form id="booking-form" action="https://formspree.io/f/efe.colak977@gmail.com" method="POST">
-                            <div class="form-group">
-                                <label>İsim Soyisim</label>
-                                <input type="text" name="name" placeholder="Adınız" required>
-                            </div>
-                            <div class="form-group">
-                                <label>E-posta</label>
-                                <input type="email" name="email" placeholder="ornek@mail.com" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Tarih Seçin</label>
-                                <input type="date" name="date" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Saat Seçin</label>
-                                <select name="time" required>
-                                    <option value="">Saat seçiniz...</option>
-                                    <option value="09:00">09:00</option>
-                                    <option value="11:00">11:00</option>
-                                    <option value="14:00">14:00</option>
-                                    <option value="16:00">16:00</option>
-                                    <option value="18:00">18:00</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">Randevuyu Tamamla</button>
-                        </form>
+                    <div class="info-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+90 500 000 00 00</span>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Login Modal -->
-    <div id="login-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('login-modal')">&times;</span>
-            <h2>Giriş Yap</h2>
-            <form id="login-form">
-                <div class="form-group">
-                    <label>E-posta</label>
-                    <input type="email" placeholder="ornek@mail.com" required>
-                </div>
-                <div class="form-group">
-                    <label>Şifre</label>
-                    <input type="password" placeholder="********" required>
-                </div>
-                <button type="submit" class="btn btn-primary w-100">Giriş Yap</button>
-                <p style="margin-top:1rem; text-align:center;"><small>Deneme için herhangi bir bilgiyle girebilirsiniz.</small></p>
-            </form>
-        </div>
-    </div>
-
-    <!-- Payment/Checkout Modal -->
+    <!-- Payment Modal -->
     <div id="checkout-modal" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('checkout-modal')">&times;</span>
-            <h2>Ödeme İşlemi</h2>
+            <span class="close-modal">&times;</span>
+            <h2 data-key="modal_title">Ödeme Detayları</h2>
             <div id="selected-plan-info"></div>
-            <form id="payment-form" action="https://formspree.io/f/efe.colak977@gmail.com" method="POST">
+            <form id="payment-form" action="https://formspree.io/efe.colak977@gmail.com" method="POST">
                 <input type="hidden" name="plan" id="hidden-plan">
-                <div class="form-group">
-                    <label>Kart Üzerindeki İsim</label>
-                    <input type="text" name="card-name" placeholder="John Doe" required>
-                </div>
-                <div class="form-group">
-                    <label>Kart Numarası</label>
-                    <input type="text" name="card-number" placeholder="**** **** **** ****" maxlength="19" required>
-                </div>
+                <input type="text" name="card-name" placeholder="Kart Sahibi" required>
+                <input type="text" name="card-number" placeholder="**** **** **** ****" maxlength="19" required>
                 <div class="form-row">
-                    <div class="form-group">
-                        <label>Son Kullanma</label>
-                        <input type="text" name="expiry" placeholder="AA/YY" maxlength="5" required>
-                    </div>
-                    <div class="form-group">
-                        <label>CVV</label>
-                        <input type="text" name="cvv" placeholder="***" maxlength="3" required>
-                    </div>
+                    <input type="text" name="expiry" placeholder="AA/YY" maxlength="5" required>
+                    <input type="text" name="cvv" placeholder="CVV" maxlength="3" required>
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Güvenli Ödeme Yap</button>
+                <button type="submit" class="btn btn-primary w-100" data-key="modal_pay_btn">Ödemeyi Tamamla</button>
             </form>
         </div>
     </div>
 
-    <!-- WhatsApp Floating Button -->
+    <!-- WhatsApp Float -->
     <a href="https://wa.me/905000000000" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
-        <span>Canlı Destek</span>
     </a>
 
     <footer>
         <div class="container footer-content">
-            <div class="footer-logo">Language<span>Pro</span></div>
-            <div class="footer-social">
-                <a href="#"><i class="fab fa-instagram"></i></a>
+            <p>&copy; 2026 Language Courses. Tüm Hakları Saklıdır.</p>
+            <div class="social-links">
                 <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-linkedin"></i></a>
             </div>
-            <p>&copy; 2026 Language Pro. Tüm Hakları Saklıdır.</p>
-            <p><small>Destek: efe.colak977@gmail.com</small></p>
         </div>
     </footer>
 
