@@ -427,8 +427,9 @@ footer{background:#1A0A3D;color:#fff;padding:68px 24px 0}
 @media(min-width:1024px){.uni-grid{grid-template-columns:repeat(4,1fr)}}
 .uni-card{background:var(--bg);padding:28px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;transition:background .2s,transform .2s;cursor:default}
 .uni-card:hover{background:var(--bg2);transform:translateY(-3px)}
-.uni-icon{width:64px;height:64px;border-radius:50%;background:var(--bg2);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.6rem;transition:border-color .2s}
-.uni-card:hover .uni-icon{border-color:var(--primary)}
+.uni-icon{width:72px;height:72px;border-radius:12px;background:#f8f8f8;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.6rem;transition:border-color .2s,box-shadow .2s;overflow:hidden;padding:8px;flex-shrink:0}
+.uni-icon img{width:100%;height:100%;object-fit:contain}
+.uni-card:hover .uni-icon{border-color:var(--primary);box-shadow:0 4px 16px var(--shadow)}
 .uni-name{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--fg);line-height:1.35}
 .uni-city{font-size:12px;color:var(--muted);margin-top:2px}
 .uni-type{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;margin-top:4px}
@@ -635,8 +636,8 @@ footer{background:#1A0A3D;color:#fff;padding:68px 24px 0}
           <span data-lang="en">Want to Study<br><em>in Turkey?</em></span>
         </h2>
         <p class="sec-sub">
-          <span data-lang="tr">2000 yılından bu yana binlerce uluslararası öğrencinin hayallerine kavuşmasına yardımcı olduk. Başvurudan sınava kadar her adımda yanındayız.</span>
-          <span data-lang="en">Since 2000, we have helped thousands of international students achieve their dreams. We are with you every step from application to exam.</span>
+          <span data-lang="tr">2015 yılından bu yana binlerce uluslararası öğrencinin hayallerine kavuşmasına yardımcı olduk. Başvurudan sınava kadar her adımda yanındayız.</span>
+          <span data-lang="en">Since 2015, we have helped thousands of international students achieve their dreams. We are with you every step from application to exam.</span>
         </p>
         <div class="check-list">
           <div class="check-row"><svg class="check-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg><span data-lang="tr">Türkiye'nin en prestijli üniversitelerinde eğitim imkânı</span><span data-lang="en">Education opportunities at Turkey's most prestigious universities</span></div>
@@ -778,91 +779,91 @@ footer{background:#1A0A3D;color:#fff;padding:68px 24px 0}
 
     <div class="uni-grid">
       <div class="uni-card">
-        <div class="uni-icon">🏛️</div>
+        <div class="uni-icon" style="background:#f8f8f8;overflow:hidden;padding:6px;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Istanbul_University_logo.svg/200px-Istanbul_University_logo.svg.png" alt="" style="width:100%;height:100%;object-fit:contain;" onerror="this.style.display='none'"></div>
         <div class="uni-name">İstanbul Üniversitesi</div>
         <div class="uni-city">İstanbul</div>
         <span class="uni-type devlet"><span data-lang="tr">Devlet</span><span data-lang="en">State</span></span>
       </div>
       <div class="uni-card">
-        <div class="uni-icon">🎓</div>
+        <div class="uni-icon" style="background:#f8f8f8;overflow:hidden;padding:6px;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Ankara_%C3%9Cniversitesi_logo.svg/200px-Ankara_%C3%9Cniversitesi_logo.svg.png" alt="" style="width:100%;height:100%;object-fit:contain;" onerror="this.style.display='none'"></div>
         <div class="uni-name">Ankara Üniversitesi</div>
         <div class="uni-city">Ankara</div>
         <span class="uni-type devlet"><span data-lang="tr">Devlet</span><span data-lang="en">State</span></span>
       </div>
       <div class="uni-card">
-        <div class="uni-icon">🏫</div>
+        <div class="uni-icon" style="background:#f8f8f8;overflow:hidden;padding:6px;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/thirty/Istanbul_Technical_University_logo.svg/200px-Istanbul_Technical_University_logo.svg.png" alt="" style="width:100%;height:100%;object-fit:contain;" onerror="this.style.display='none'"></div>
         <div class="uni-name">İstanbul Teknik Üniversitesi</div>
         <div class="uni-city">İstanbul</div>
         <span class="uni-type devlet"><span data-lang="tr">Devlet</span><span data-lang="en">State</span></span>
       </div>
       <div class="uni-card">
-        <div class="uni-icon">⭐</div>
+        <div class="uni-icon" style="background:#f8f8f8;overflow:hidden;padding:6px;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Bogazici_University_logo.svg/200px-Bogazici_University_logo.svg.png" alt="" style="width:100%;height:100%;object-fit:contain;" onerror="this.style.display='none'"></div>
         <div class="uni-name">Boğaziçi Üniversitesi</div>
         <div class="uni-city">İstanbul</div>
         <span class="uni-type devlet"><span data-lang="tr">Devlet</span><span data-lang="en">State</span></span>
       </div>
       <div class="uni-card">
-        <div class="uni-icon">🔬</div>
+        <div class="uni-icon" style="background:#f8f8f8;overflow:hidden;padding:6px;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Metu_logo.svg/200px-Metu_logo.svg.png" alt="" style="width:100%;height:100%;object-fit:contain;" onerror="this.style.display='none'"></div>
         <div class="uni-name">Orta Doğu Teknik Üniversitesi</div>
         <div class="uni-city">Ankara</div>
         <span class="uni-type devlet"><span data-lang="tr">Devlet</span><span data-lang="en">State</span></span>
       </div>
       <div class="uni-card">
-        <div class="uni-icon">💡</div>
+        <div class="uni-icon" style="background:#f8f8f8;overflow:hidden;padding:6px;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Sabanci_University_logo.svg/200px-Sabanci_University_logo.svg.png" alt="" style="width:100%;height:100%;object-fit:contain;" onerror="this.style.display='none'"></div>
         <div class="uni-name">Sabancı Üniversitesi</div>
         <div class="uni-city">İstanbul</div>
         <span class="uni-type vakif"><span data-lang="tr">Vakıf</span><span data-lang="en">Foundation</span></span>
       </div>
       <div class="uni-card">
-        <div class="uni-icon">🌟</div>
+        <div class="uni-icon" style="background:#f8f8f8;overflow:hidden;padding:6px;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Ko%C3%A7_University_logo.svg/200px-Ko%C3%A7_University_logo.svg.png" alt="" style="width:100%;height:100%;object-fit:contain;" onerror="this.style.display='none'"></div>
         <div class="uni-name">Koç Üniversitesi</div>
         <div class="uni-city">İstanbul</div>
         <span class="uni-type vakif"><span data-lang="tr">Vakıf</span><span data-lang="en">Foundation</span></span>
       </div>
       <div class="uni-card">
-        <div class="uni-icon">🎯</div>
+        <div class="uni-icon" style="background:#f8f8f8;overflow:hidden;padding:6px;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Bilkent_University_logo.svg/200px-Bilkent_University_logo.svg.png" alt="" style="width:100%;height:100%;object-fit:contain;" onerror="this.style.display='none'"></div>
         <div class="uni-name">Bilkent Üniversitesi</div>
         <div class="uni-city">Ankara</div>
         <span class="uni-type vakif"><span data-lang="tr">Vakıf</span><span data-lang="en">Foundation</span></span>
       </div>
       <div class="uni-card">
-        <div class="uni-icon">🏥</div>
+        <div class="uni-icon" style="background:#f8f8f8;overflow:hidden;padding:6px;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Hacettepe_%C3%9Cniversitesi_logo.svg/200px-Hacettepe_%C3%9Cniversitesi_logo.svg.png" alt="" style="width:100%;height:100%;object-fit:contain;" onerror="this.style.display='none'"></div>
         <div class="uni-name">Hacettepe Üniversitesi</div>
         <div class="uni-city">Ankara</div>
         <span class="uni-type devlet"><span data-lang="tr">Devlet</span><span data-lang="en">State</span></span>
       </div>
       <div class="uni-card">
-        <div class="uni-icon">⚡</div>
+        <div class="uni-icon" style="background:#f8f8f8;overflow:hidden;padding:6px;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Yildiz_Technical_University_logo.svg/200px-Yildiz_Technical_University_logo.svg.png" alt="" style="width:100%;height:100%;object-fit:contain;" onerror="this.style.display='none'"></div>
         <div class="uni-name">Yıldız Teknik Üniversitesi</div>
         <div class="uni-city">İstanbul</div>
         <span class="uni-type devlet"><span data-lang="tr">Devlet</span><span data-lang="en">State</span></span>
       </div>
       <div class="uni-card">
-        <div class="uni-icon">🌍</div>
+        <div class="uni-icon" style="background:#f8f8f8;overflow:hidden;padding:6px;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Marmara_University_seal.svg/200px-Marmara_University_seal.svg.png" alt="" style="width:100%;height:100%;object-fit:contain;" onerror="this.style.display='none'"></div>
         <div class="uni-name">Marmara Üniversitesi</div>
         <div class="uni-city">İstanbul</div>
         <span class="uni-type devlet"><span data-lang="tr">Devlet</span><span data-lang="en">State</span></span>
       </div>
       <div class="uni-card">
-        <div class="uni-icon">🏆</div>
+        <div class="uni-icon" style="background:#f8f8f8;overflow:hidden;padding:6px;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Istanbul_Bilgi_University_logo.svg/200px-Istanbul_Bilgi_University_logo.svg.png" alt="" style="width:100%;height:100%;object-fit:contain;" onerror="this.style.display='none'"></div>
         <div class="uni-name">Bilgi Üniversitesi</div>
         <div class="uni-city">İstanbul</div>
         <span class="uni-type vakif"><span data-lang="tr">Vakıf</span><span data-lang="en">Foundation</span></span>
       </div>
       <div class="uni-card">
-        <div class="uni-icon">📚</div>
+        <div class="uni-icon" style="background:#f8f8f8;overflow:hidden;padding:6px;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Uludag_%C3%9Cniversitesi_logo.svg/200px-Uludag_%C3%9Cniversitesi_logo.svg.png" alt="" style="width:100%;height:100%;object-fit:contain;" onerror="this.style.display='none'"></div>
         <div class="uni-name">Uludağ Üniversitesi</div>
         <div class="uni-city">Bursa</div>
         <span class="uni-type devlet"><span data-lang="tr">Devlet</span><span data-lang="en">State</span></span>
       </div>
       <div class="uni-card">
-        <div class="uni-icon">🌺</div>
+        <div class="uni-icon" style="background:#f8f8f8;overflow:hidden;padding:6px;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Ege_University_logo.svg/200px-Ege_University_logo.svg.png" alt="" style="width:100%;height:100%;object-fit:contain;" onerror="this.style.display='none'"></div>
         <div class="uni-name">Ege Üniversitesi</div>
         <div class="uni-city">İzmir</div>
         <span class="uni-type devlet"><span data-lang="tr">Devlet</span><span data-lang="en">State</span></span>
       </div>
       <div class="uni-card">
-        <div class="uni-icon">🔭</div>
+        <div class="uni-icon" style="background:#f8f8f8;overflow:hidden;padding:6px;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Dokuz_Eyl%C3%BCl_%C3%9Cniversitesi_logo.svg/200px-Dokuz_Eyl%C3%BCl_%C3%9Cniversitesi_logo.svg.png" alt="" style="width:100%;height:100%;object-fit:contain;" onerror="this.style.display='none'"></div>
         <div class="uni-name">Dokuz Eylül Üniversitesi</div>
         <div class="uni-city">İzmir</div>
         <span class="uni-type devlet"><span data-lang="tr">Devlet</span><span data-lang="en">State</span></span>
@@ -1206,7 +1207,7 @@ footer{background:#1A0A3D;color:#fff;padding:68px 24px 0}
       <div class="fcon"><p class="fcon-label">E-posta / Email</p><p class="fcon-val"><a href="mailto:bilgi@yosdanismanim.com">bilgi@yosdanismanim.com</a></p></div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2025 YÖS Danışmanım. <span data-lang="tr">Tüm hakları saklıdır.</span><span data-lang="en">All rights reserved.</span></p>
+      <p class="footer-copy">© 2015–2025 YÖS Danışmanım. <span data-lang="tr">Tüm hakları saklıdır.</span><span data-lang="en">All rights reserved.</span></p>
       <p class="footer-built">yosdanismanim.com</p>
     </div>
   </div>
